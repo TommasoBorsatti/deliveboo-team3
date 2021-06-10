@@ -40,7 +40,7 @@ class User extends Authenticatable
     //Relazione tra model
     public function categories()
     {
-        return $this->belongsToMany('App\Category');
+        return $this->belongsToMany('App\Category', 'user_category');
     }
 
     public function plates()

@@ -17,11 +17,11 @@ class Plate extends Model
 
     public function orders()
     {
-        return $this->belongsToMany('App\Order');
+        return $this->belongsToMany('App\Order', 'plate_order');
     }
 
     public function types()
     {
-        return $this->belongsToMany('App\Type');
+        return $this->belongsToMany('App\Type', 'plate_type');
     }
 }

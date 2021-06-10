@@ -12,7 +12,7 @@ class Order extends Model
      //Relazioni tra Model
      public function plates()
      {
-        return $this->belongsToMany('App\Plate');
+        return $this->belongsToMany('App\Plate', 'plate_order');
      }
  
 }
