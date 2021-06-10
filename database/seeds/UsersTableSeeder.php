@@ -3,6 +3,7 @@
 use App\Category;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -40,12 +41,14 @@ class UsersTableSeeder extends Seeder
             $newUser = new User();
             $newUser->name = $user['name'];
             $newUser->email = $user['email'];
-            $newUser->password = $user['password'];
+            $newUser->password = Hash::make($user['password']);
             $newUser->p_iva = $user['p_iva'];
             $newUser->restaurant = $user['restaurant'];
             $newUser->address = $user['address'];
             
             $newUser->save();
+
+
 
             $newUser->categories()->attach($categories[rand(0, 5)]);
             
