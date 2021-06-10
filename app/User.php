@@ -15,9 +15,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    
+     //Inserito Mass Assignement - Eccezione Categories
+     protected $guarded=['categories'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,4 +36,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Relazione tra model
+    public function categories()
+    {
+        return $this->belongsToMany('App\Category');
+    }
+
+    public function plates()
+    {
+        return $this->hasMany('App\Plate');
+    }
+
+
 }
+
