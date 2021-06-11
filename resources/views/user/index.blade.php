@@ -29,11 +29,11 @@
                     <td>
                         
                         {{-- <a href="{{route('user.plate.edit', [ 'plate' => $plate->id ])}}"><button type="button" class="btn btn-success"></button></a> --}}
-                        {{-- <form action="{{route('user.plate.destroy', [ 'plate' => $plate->id ])}}" method="POST"> --}}
-                            {{-- @csrf
+                        <form action="{{route('user.plate.destroy', [ 'plate' => $plate->id ])}}" method="POST">
+                            @csrf
                             @method('DELETE')
                             <button  type="submit" class="btn btn-danger"></button>
-                        </form> --}}
+                        </form>
                     </td>
                 </tr>
             @endforeach
