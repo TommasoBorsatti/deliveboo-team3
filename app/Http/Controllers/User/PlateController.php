@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Plate;
+use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +31,10 @@ class PlateController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $types = Type::all();
+
+        return view('user.create', compact('user', 'types'));
     }
 
     /**
