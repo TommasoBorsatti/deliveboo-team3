@@ -22,8 +22,8 @@
             <textarea class="form-control"  name="description" id="description" cols="30" rows="10"  placeholder="Inserisci una descrizione per il tuo piatto">{{old('description')}}</textarea>
         </div>
         <div class="form-group">
-            <label for="plate_img">Immagine</label>
-            <input type="text" class="form-control" id="plate_img" name="plate_img" value="{{old('plate_img')}}" placeholder="Inserisci un'immagine per il tuo piatto">
+            <label for="plate_img">Carica un'immagine per il tuo piatto</label>
+            <input type="file" class="d-block" id="plate_img" name="plate_img" value="{{old('plate_img')}}">
         </div>
         <div class="mt-4">
             <h3>Seleziona la disponibilità del piatto:</h3>

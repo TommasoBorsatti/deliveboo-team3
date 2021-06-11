@@ -13,6 +13,9 @@ class PlateController extends Controller
 
     protected $validation = [
         'name' => 'required|string|max:75',
+        'price' => 'required|numeric',
+        'description' => 'nullable|string',
+        // 'plate_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
     ];
 
     /**
@@ -57,7 +60,21 @@ class PlateController extends Controller
         // validation
         $request->validate($validation);
 
+        
         $data = $request->all();
+
+        // conotrollo disponibilità
+        $data['availale'] = !isset($data['available']) ? 0 : 1;
+
+        // creazione nuovo piatto
+        $newPlate = Plate::create($data);
+
+        // controllo checkbox types e attach
+        if( isset($data['types']) ){
+            $newPlate->types()->attach($data['types']);
+        }
+        
+        
     }
 
     /**
