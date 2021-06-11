@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Area Privata!!
+
 Route::prefix('user')->name('user.')->namespace('User')->middleware('auth')->group( function() {
     Route::resource('plate', 'PlateController');
 });

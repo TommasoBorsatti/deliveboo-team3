@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Plate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlateController extends Controller
 {
@@ -14,7 +16,11 @@ class PlateController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $plates = Plate::where('id', $user->id)->get();
+        $plates = $plates->all();
+
+        return view('user.index', compact('user', 'plates'));
     }
 
     /**
