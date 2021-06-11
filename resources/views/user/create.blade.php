@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="description">Descrizione</label>
-            <textarea class="form-control"  name="description" id="description" cols="30" rows="10" value="{{old('description')}}" placeholder="Inserisci una descrizione per il tuo piatto"></textarea>
+            <textarea class="form-control"  name="description" id="description" cols="30" rows="10"  placeholder="Inserisci una descrizione per il tuo piatto">{{old('description')}}</textarea>
         </div>
         <div class="form-group">
             <label for="plate_img">Immagine</label>
@@ -28,7 +28,7 @@
         <div class="mt-4">
             <h3>Seleziona la disponibilità del piatto:</h3>
             <div class="form-check form-check-inline ì">
-                <input class="form-check-input" type="checkbox" id="available" name="available" {{old('available') ? 'checked' : ''}}">
+                <input class="form-check-input" type="checkbox" id="available" name="available" {{ old('available') == 'on' ? 'checked' : ''}} >
                 <label class="form-check-label" for="available">Disponibile per l'acquisto</label>
             </div>
         </div>
