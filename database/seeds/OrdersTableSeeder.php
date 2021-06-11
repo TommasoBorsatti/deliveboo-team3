@@ -15,22 +15,22 @@ class OrdersTableSeeder extends Seeder
     {
         $orders = [
             [   
-                'total'=> 5.50,
-                'name_ui'=>'Roberto',
-                'lastname_ui'=>'Morbidozzi',
-                'email_ui'=>'robi88@gmail.it',
-                'phone_ui'=>'3333333333',
-                'address_ui'=> 'Viale Giacomelli 11, 50041 Calenzano (FI)',
-                'status'=> 'success'
+                'total' => 5.50,
+                'name_ui' => 'Roberto',
+                'lastname_ui' => 'Morbidozzi',
+                'email_ui' => 'robi88@gmail.it',
+                'phone_ui' => '3333333333',
+                'address_ui' => 'Viale Giacomelli 11, 50041 Calenzano (FI)',
+                'status' => 'success'
             ],
             [   
-                'total'=> 8,
-                'name_ui'=>'Gianni',
-                'lastname_ui'=>'Topampa',
-                'email_ui'=>'giannisuper@gmail.it',
-                'phone_ui'=>'22222222222',
-                'address_ui'=> 'Viale Mazzini 1, 50041 Calenzano (FI)',
-                'status'=> 'unsuccess'
+                'total' => 8,
+                'name_ui' => 'Gianni',
+                'lastname_ui' => 'Topampa',
+                'email_ui' => 'giannisuper@gmail.it',
+                'phone_ui' => '22222222222',
+                'address_ui' => 'Viale Mazzini 1, 50041 Calenzano (FI)',
+                'status' => 'unsuccess'
             ]
 
         ];

@@ -15,18 +15,18 @@ class PlatesTableSeeder extends Seeder
 
         $plates = [
             [   
-                'name'=>'Acqua Minerale 0.5 l',
-                'price'=>2,
-                'available'=>1,
-                'description'=>'Bottiglietta di Acqua Minerale',
-                'plate_img'=>'https://dzpybaqldk5xx.cloudfront.net/prod/spree/758/products/325/product/0_5L_naturale.jpg?1587541380',
+                'name' => 'Acqua Minerale 0.5 l',
+                'price' => 2,
+                'available' => 1,
+                'description' => 'Bottiglietta di Acqua Minerale',
+                'plate_img' => 'https://dzpybaqldk5xx.cloudfront.net/prod/spree/758/products/325/product/0_5L_naturale.jpg?1587541380',
             ],
             [   
-                'name'=>'Coca Cola 0 33cl',
-                'price'=>2.5,
-                'available'=>'0',
-                'description'=>'Lattina di Coca Cola 0',
-                'plate_img'=>'https://cdn.craispesaonline.it/apps/images/catalog/eg-0006562/eg-0006562_1_big.jpg',
+                'name' => 'Coca Cola 0 33cl',
+                'price' => 2.5,
+                'available' => 1,
+                'description' => 'Lattina di Coca Cola 0',
+                'plate_img' => 'https://cdn.craispesaonline.it/apps/images/catalog/eg-0006562/eg-0006562_1_big.jpg',
             ]
         ];
 

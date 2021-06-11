@@ -16,20 +16,20 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
             [
-                'name'=>'Mino',
-                'email'=>'mino@gmail.it',
-                'password'=>'abcdefghi',
-                'p_iva'=>'12345678910',
-                'restaurant'=>'Chez Lardì',
-                'address'=> 'Viale Rossi 22, 50041 Calenzano (FI)'
+                'name' => 'Mino',
+                'email' => 'mino@gmail.it',
+                'password' => 'abcdefghi',
+                'p_iva' => '12345678910',
+                'restaurant' => 'Chez Lardì',
+                'address' =>  'Viale Rossi 22, 50041 Calenzano (FI)'
             ],
             [
-                'name'=>'Tony Starco',
-                'email'=>'ciccino89@gmail.it',
-                'password'=>'ihgfedcba',
-                'p_iva'=>'10987654321',
-                'restaurant'=>'Ristorante MariaRosa',
-                'address'=> 'Viale Verdi 19, 50019 Sesto Fiorentino (FI)'
+                'name' => 'Tony Starco',
+                'email' => 'ciccino89@gmail.it',
+                'password' => 'ihgfedcba',
+                'p_iva' => '10987654321',
+                'restaurant' => 'Ristorante MariaRosa',
+                'address' => 'Viale Verdi 19, 50019 Sesto Fiorentino (FI)'
             ]
 
         ];
