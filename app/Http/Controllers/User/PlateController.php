@@ -7,6 +7,7 @@ use App\Plate;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PlateController extends Controller
 {
@@ -26,9 +27,10 @@ class PlateController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $plates = Plate::where('id', $user->id)->get();
-        $plates = $plates->all();
+        $plates = Plate::where('user_id', $user->id)->get();
 
+        $plates = $plates->all();
+        
         return view('user.index', compact('user', 'plates'));
     }
 
@@ -42,6 +44,7 @@ class PlateController extends Controller
         $user = Auth::user();
         $types = Type::all();
 
+
         return view('user.create', compact('user', 'types'));
     }
 
@@ -54,7 +57,7 @@ class PlateController extends Controller
     public function store(Request $request)
     {
 
-
+        $user = Auth::user();
         $validation = $this->validation;
 
         // validation
@@ -64,8 +67,14 @@ class PlateController extends Controller
         $data = $request->all();
 
         // conotrollo disponibilità
-        $data['availale'] = !isset($data['available']) ? 0 : 1;
-
+        $data['available'] = !isset($data['available']) ? 0 : 1;
+        if ( isset($data['plate_img'])) {
+            $data['plate_img'] = Storage::disk()->put('images', $data['plate_img']);
+        } else {
+            $data['plate_img'] = 'images/default.jpeg';
+        }
+        
+        $data['user_id'] = $user->id;
         // creazione nuovo piatto
         $newPlate = Plate::create($data);
 
@@ -73,7 +82,8 @@ class PlateController extends Controller
         if( isset($data['types']) ){
             $newPlate->types()->attach($data['types']);
         }
-        
+
+        return redirect()->route('user.plate.index');
         
     }
 
