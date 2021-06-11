@@ -11,24 +11,24 @@
         @method('POST')
         <div class="form-group">
             <label for="name">Nome</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Inserisci il nome del piatto">
+            <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}" placeholder="Inserisci il nome del piatto" required>
         </div>
         <div class="form-group">
             <label for="price">Prezzo</label>
-            <input type="number" class="form-control" id="price" name="price" placeholder="Inserisci il prezzo del piatto">
+            <input type="number" class="form-control" id="price" name="price" value="{{old('price')}}" placeholder="Inserisci il prezzo del piatto" required>
         </div>
         <div class="form-group">
             <label for="description">Descrizione</label>
-            <textarea class="form-control"  name="description" id="description" cols="30" rows="10" placeholder="Inserisci una descrizione per il tuo piatto"></textarea>
+            <textarea class="form-control"  name="description" id="description" cols="30" rows="10" value="{{old('description')}}" placeholder="Inserisci una descrizione per il tuo piatto"></textarea>
         </div>
         <div class="form-group">
             <label for="plate_img">Immagine</label>
-            <input type="text" class="form-control" id="plate_img" name="plate_img" placeholder="Inserisci un'immagine per il tuo piatto">
+            <input type="text" class="form-control" id="plate_img" name="plate_img" value="{{old('plate_img')}}" placeholder="Inserisci un'immagine per il tuo piatto">
         </div>
         <div class="mt-4">
             <h3>Seleziona la disponibilità del piatto:</h3>
             <div class="form-check form-check-inline ì">
-                <input class="form-check-input" type="checkbox" id="available" name="available">
+                <input class="form-check-input" type="checkbox" id="available" name="available" {{old('available') ? 'checked' : ''}}">
                 <label class="form-check-label" for="available">Disponibile per l'acquisto</label>
             </div>
         </div>

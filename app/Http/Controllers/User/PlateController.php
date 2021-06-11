@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class PlateController extends Controller
 {
+
+    protected $validation = [
+        'name' => 'required|string|max:75',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +50,14 @@ class PlateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $validation = $this->validation;
+
+        // validation
+        $request->validate($validation);
+
+        $data = $request->all();
     }
 
     /**
