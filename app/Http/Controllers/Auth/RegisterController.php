@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -49,13 +50,24 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        return  Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'p_iva' => ['required','numeric'],
+            'restaurant' => ['required', 'string', 'max:75'],
+            'address' => ['required', 'string', 'max:125'],
+            'categories' => ['required']
         ]);
     }
 
+
+    public function showRegistrationForm()
+    {
+        $categories = Category::all();
+        return view('auth.register', compact('categories'));
+        
+    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -64,10 +76,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $newUser = new User();
+        $newUser->name =  $data['name'];    
+        $newUser->email = $data['email'];
+        $newUser->password = Hash::make($data['password']);
+        $newUser->p_iva = $data['p_iva'];
+        $newUser->restaurant = $data['restaurant'];
+        $newUser->address = $data['address'];
+        $newUser->save();
+
+        $newUser->categories()->attach($data['categories']);
+
+        return $newUser;
     }
 }

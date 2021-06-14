@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="price">Prezzo</label>
-            <input type="number" class="form-control" id="price" name="price" value="{{old('price')}}" placeholder="Inserisci il prezzo del piatto" required>
+            <input type="number" class="form-control" step="0.01" id="price" name="price" value="{{old('price')}}" placeholder="Inserisci il prezzo del piatto" required>
         </div>
         <div class="form-group">
             <label for="description">Descrizione</label>
