@@ -169,6 +169,6 @@ class PlateController extends Controller
     {
         $plate->delete();
 
-        return redirect()->route('user.plate.index')->with('message', 'Il piatto è stato eliminato!');
+        return redirect()->route('admin.plate.index')->with('message', 'Il piatto è stato eliminato!');
     }
 }

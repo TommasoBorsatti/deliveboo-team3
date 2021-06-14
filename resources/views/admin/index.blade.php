@@ -48,5 +48,34 @@
                 </button>
             </div>
         @endif
-    </div>
+
+        <div class="card-deck">
+            @foreach ($plates as $plate)
+            <div class="card">
+                <img src="{{asset('storage/' . $plate->plate_img)}}" class="card-img-top" alt="{{$plate->name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $plate->name }}</h5>
+                    <h3>{{ $plate->price }} &euro;</h3>
+                    <p class="card-text">{{ $plate->description }}</p>
+                    <p>Disponibile: {!! $plate->available ? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'!!}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{route('admin.plate.edit', $plate->id )}}"><button type="button" class="btn btn-success "><i class="fas fa-pencil-alt"></i></button></a>
+                        <form class="d-inline" action="{{route('admin.plate.destroy', [ 'plate' => $plate->id ])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            
+                            <button type="submit" class="btn btn-danger d-none">si </button>
+                            
+                        </form>
+                        <button  class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        <button class="btn btn-danger d-none">no</button>
+                        
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+              
+            @endforeach           
+        </div>    
 @endsection
