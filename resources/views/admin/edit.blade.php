@@ -10,7 +10,7 @@
     <h1 class="mb-5">Modifica: {{ $plate->name }}</h1>
     <form class="mt-3" action="{{route('admin.plate.update', $plate->id ) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('POST')
+        @method('PUT')
         <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" class="form-control" id="name" name="name" value="{{old('name') ? old('name') : $plate->name }}" placeholder="Inserisci il nome del piatto" required>

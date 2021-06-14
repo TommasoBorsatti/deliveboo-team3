@@ -133,7 +133,30 @@ class PlateController extends Controller
             abort('403');
         }
 
+        $validation = $this->validation;
+        
+        // validation
+        $request->validate($validation);
 
+        $data = $request->all();
+
+        
+         // conotrollo disponibilità
+        $data['available'] = !isset($data['available']) ? 0 : 1;
+        
+        if ( isset($data['plate_img'])) {
+            $data['plate_img'] = Storage::disk()->put('images', $data['plate_img']);
+        }
+        
+        $plate->update($data);
+
+        // aggiorno i types del piatto
+        if( !isset($data['types']) ) {
+            $data['types'] = [];
+        }
+        $plate->types()->sync($data['types']);
+        
+        return redirect()->route('admin.plate.index');
     }
 
     /**
