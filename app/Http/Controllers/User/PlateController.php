@@ -104,9 +104,18 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Plate $plate)
     {
-        //
+
+        $user_id = Auth::id();
+        // controllo che il piatto da modificare sia associato all'utente loggato
+        if( $plate->user_id != $user_id ) {
+            abort('403');
+        }
+
+        $types = Type::all();
+
+        return view('admin.edit', compact('plate', 'types'));
     }
 
     /**
@@ -116,9 +125,15 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Plate $plate)
     {
-        //
+        $user_id = Auth::id();
+        // controllo che il piatto da modificare sia associato all'utente loggato
+        if( $plate->user_id != $user_id ) {
+            abort('403');
+        }
+
+
     }
 
     /**

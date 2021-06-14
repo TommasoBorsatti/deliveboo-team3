@@ -28,7 +28,7 @@
                     <td>{{ $plate->available ? 'Si' : 'no'}}</td>
                     <td>
                         
-                        {{-- <a href="{{route('user.plate.edit', [ 'plate' => $plate->id ])}}"><button type="button" class="btn btn-success"></button></a> --}}
+                        <a href="{{route('admin.plate.edit', $plate->id )}}"><button type="button" class="btn btn-success"></button></a>
                         <form action="{{route('admin.plate.destroy', [ 'plate' => $plate->id ])}}" method="POST">
                             @csrf
                             @method('DELETE')
