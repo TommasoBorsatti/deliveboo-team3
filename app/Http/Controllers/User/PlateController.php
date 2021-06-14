@@ -31,7 +31,7 @@ class PlateController extends Controller
 
         $plates = $plates->all();
         
-        return view('user.index', compact('user', 'plates'));
+        return view('admin.index', compact('user', 'plates'));
     }
 
     /**
@@ -45,7 +45,7 @@ class PlateController extends Controller
         $types = Type::all();
 
 
-        return view('user.create', compact('user', 'types'));
+        return view('admin.create', compact('user', 'types'));
     }
 
     /**
@@ -83,7 +83,7 @@ class PlateController extends Controller
             $newPlate->types()->attach($data['types']);
         }
 
-        return redirect()->route('user.plate.index');
+        return redirect()->route('admin.plate.index');
         
     }
 

@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="mb-3 text-right">
-            <a href="{{route('user.plate.create')}}"><button type="button" class="btn btn-success"> Aggiungi Piatto</button></a>
+            <a href="{{route('admin.plate.create')}}"><button type="button" class="btn btn-success"> Aggiungi Piatto</button></a>
         </div>
         <table class="table table-striped">
             <thead>
@@ -29,7 +29,7 @@
                     <td>
                         
                         {{-- <a href="{{route('user.plate.edit', [ 'plate' => $plate->id ])}}"><button type="button" class="btn btn-success"></button></a> --}}
-                        <form action="{{route('user.plate.destroy', [ 'plate' => $plate->id ])}}" method="POST">
+                        <form action="{{route('admin.plate.destroy', [ 'plate' => $plate->id ])}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button  type="submit" class="btn btn-danger"></button>
