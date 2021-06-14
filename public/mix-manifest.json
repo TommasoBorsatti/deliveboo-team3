@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/guest_index_search.js": "/js/guest_index_search.js",
+    "/js/admin_index.js": "/js/admin_index.js",
     "/css/app.css": "/css/app.css"
 }

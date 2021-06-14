@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container" id="root">
         <h1 class="mb-3">Dashboard di: {{ $user->restaurant }}</h1>
         <div class="mb-3 text-right">
             <a href="{{route('admin.plate.create')}}"><button type="button" class="btn btn-success"> Aggiungi Piatto</button></a>
@@ -61,21 +61,26 @@
                 </div>
                 <div class="card-footer">
                     <a href="{{route('admin.plate.edit', $plate->id )}}"><button type="button" class="btn btn-success "><i class="fas fa-pencil-alt"></i></button></a>
+                    <button  v-on:click="show = true" v-if="show == false" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    
+                    <div v-if="show == true" class="d-inline">
+                        
                         <form class="d-inline" action="{{route('admin.plate.destroy', [ 'plate' => $plate->id ])}}" method="POST">
                             @csrf
                             @method('DELETE')
                             
-                            <button type="submit" class="btn btn-danger d-none">si </button>
+                            <button v-on:click="show = false"  type="submit" class="btn btn-danger">si </button>
                             
                         </form>
-                        <button  class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                        <button class="btn btn-danger d-none">no</button>
                         
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                        <button v-on:click="show = false"  class="btn btn-danger">no</button>
+                    </div>
+                        
                 </div>
-            </div>
-
-              
+            </div>             
             @endforeach           
-        </div>    
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="{{ asset('js/admin_index.js')}}"></script>    
 @endsection
