@@ -47,7 +47,7 @@
             @endforeach
         </div>
         <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Aggiungi piatto</button>
+            <button type="submit" class="btn btn-primary">Modifica piatto</button>
         </div>
     </form>
 </div>

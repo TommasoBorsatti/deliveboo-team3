@@ -20,7 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('search/', 'Api\SearchCatController@search')->name('guest.search');
+
+// Area pubblica
+Route::get('restaurants', 'Guest\GuestController@searchCat')->name('search');
 
 // Area Privata!!
 

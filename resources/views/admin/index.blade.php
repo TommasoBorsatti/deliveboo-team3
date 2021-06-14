@@ -6,6 +6,7 @@
 
 @section('content')
     <div class="container">
+        <h1 class="mb-3">Dashboard di: {{ $user->restaurant }}</h1>
         <div class="mb-3 text-right">
             <a href="{{route('admin.plate.create')}}"><button type="button" class="btn btn-success"> Aggiungi Piatto</button></a>
         </div>
