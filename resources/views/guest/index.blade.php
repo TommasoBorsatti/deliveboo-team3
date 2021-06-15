@@ -1,5 +1,9 @@
 @extends('layouts.guest')
 
+@section('page_title')
+    CiBoo
+@endsection
+
 @section('contentGuest')
 <div id="app">
     <select v-model="category" v-on:change="categoriesSearch">
