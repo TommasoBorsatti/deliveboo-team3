@@ -13,7 +13,7 @@
     @include('parts.guest.header')
 
     <main>
-        @yield('content')
+        @yield('contentGuest')
     </main>
 
     @include('parts.guest.footer')

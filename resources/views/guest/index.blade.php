@@ -1,8 +1,9 @@
-@extends('layouts.base')
+@extends('layouts.guest')
+
+@section('contentGuest')
 <div id="app">
-    
     <select v-model="category" v-on:change="categoriesSearch">
-        <option value="" >Scegli la categoria</option>
+        <option value="">Scegli la categoria</option>
         @foreach ($categories as $category)
             
             <option  v-bind:value="{{ $category->id }}">
@@ -24,7 +25,9 @@
             </li>
         @endforeach
     </ul>
-</div>    
+</div>   
+@endsection
+ 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="{{ asset('js/guest_index_search.js')}}"></script>
 
