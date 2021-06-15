@@ -3,6 +3,7 @@ header {
     nav {
         height: 80px;
         background-color: $primary;
+        padding: 5px 0px;
 
         & > div.container {
             height: 100%;
@@ -18,7 +19,8 @@ header {
     .nav_login {
 
          & li a {
-         color: $secondary;   
+         color: $secondary;  
+         font-size: $fontBig; 
         }
     }
 
