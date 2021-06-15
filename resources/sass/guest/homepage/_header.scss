@@ -1,0 +1,39 @@
+header {
+
+    nav {
+        height: 80px;
+        background-color: $primary;
+
+        & > div.container {
+            height: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .nav-logo {
+        height: 100%;
+    }
+
+    .nav_login {
+
+         & li a {
+         color: white;   
+        }
+    }
+
+    //@include center-container-pY($mainContainer, 80px);
+
+
+    .box-video {
+        height: 600px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: grey;
+
+        video { 
+            height: 600px;
+            width: 100%;
+        }
+    }
+}

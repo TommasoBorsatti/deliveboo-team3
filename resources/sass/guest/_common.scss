@@ -1,3 +1,31 @@
+// Reset 
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.debug * {
+    border: 1px blue solid;
+}
+
 ul {
     list-style: none;
+}
+
+body {
+    font-family: 'Martel Sans', sans-serif;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
 }
