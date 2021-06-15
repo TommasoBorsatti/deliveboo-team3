@@ -69,7 +69,7 @@
                             @csrf
                             @method('DELETE')
                             
-                            <button v-on:click="show = false"  type="submit" class="btn btn-danger">si </button>
+                            <button type="submit" class="btn btn-danger">si </button>
                             
                         </form>
                         
