@@ -11,21 +11,21 @@ header {
         }
     }
 
-    .nav-logo {
+    .nav_logo {
         height: 100%;
     }
 
     .nav_login {
 
          & li a {
-         color: white;   
+         color: $secondary;   
         }
     }
 
     //@include center-container-pY($mainContainer, 80px);
 
 
-    .box-video {
+    .box_video {
         height: 600px;
         width: 100%;
         margin: 0 auto;

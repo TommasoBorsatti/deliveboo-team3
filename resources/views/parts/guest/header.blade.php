@@ -3,7 +3,7 @@
     <div id="navbarSupportedContent">
         <nav>
             <div class="container flex">
-                <img class="nav-logo" src="{{asset('storage/images/logo-deliveboo.png')}}" alt="logo-deliveboo">
+                <img class="nav_logo" src="{{asset('storage/images/logo-deliveboo.jpeg')}}" alt="logo-deliveboo">
                 <!-- Right Side Of Navbar -->
                 <ul class="nav_login flex">
                     <!-- Authentication Links -->
@@ -40,7 +40,7 @@
     </div>
 
     <div class="jumbotron">
-        <div class="box-video">
+        <div class="box_video">
             <video controls>
                 <source src="video.mp4" type="video/mp4">
             </video>

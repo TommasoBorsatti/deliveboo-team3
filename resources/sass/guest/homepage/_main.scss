@@ -1,0 +1,29 @@
+
+body{
+    background-color: $primary;
+}
+
+.mosaic_container{
+    width:95%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $layover;
+    border-radius: 20px;
+    padding: 25px;
+    justify-content: center;
+    
+
+    & > .category_card{
+        flex-basis: 50% - 16;
+        height: 250px;
+        background-color:$primary;
+        margin: 8px;
+
+        & > img{
+            height:100%;
+            width:100%;
+            object-fit: fill;
+        }
+    }
+}
