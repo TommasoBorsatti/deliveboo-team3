@@ -19,7 +19,7 @@ new Vue({
             let link = 'http://localhost:8000/api/restaurants'
             axios.get(link,{
                 params: {
-                  category: 1
+                  category: index + 1
                 }
               }).then((result)=>{
                   console.log(result.data);
