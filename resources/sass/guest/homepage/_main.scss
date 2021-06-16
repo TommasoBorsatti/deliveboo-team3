@@ -1,14 +1,21 @@
 
+h1{
+    color:$primary;
+    font-size: $fontTitle;
+}
 
-.main_container{
+h2{
+    color: $secondary;
+    font-size: $fontMax;
+}
+
+
+*.main_container{
     width:95%;
     margin: auto;
 
     //TYPO
-    h1{
-        color:$primary;
-        font-size: $fontMax;
-    }
+  
 
     & .mosaic_container{
         margin: auto;
@@ -63,5 +70,39 @@
                 flex-basis: 80%;
             }
         }
+
+
     }
+
+}
+
+section#restaurants{
+    background-color: $primary;
+    padding: 50px 0;
+    margin: 50px 0;
+
+    & .main-container{
+        width: 95%;
+        margin: auto;
+
+        & .restaurant-container{
+            width:100%;
+            margin: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+    
+            & .restaurant-card{
+                flex-basis: calc(50% - 20px);
+                background-color: white;
+                height: 200px;
+                border-radius: 10px;
+                padding: 10px;
+                margin: 10px;
+            }
+        }
+    
+    }
+
+    
+
 }

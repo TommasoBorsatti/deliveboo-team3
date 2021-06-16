@@ -13,7 +13,7 @@
             <div v-for="(category, index) in categories" v-on:click="categoriesSearch(index)" class="category_card" :class="'cat' + category.name">    
             </div>
         </div>
-
+    
         {{-- <!--SELECT DI VUE-->
         <select class="mt-40" v-model="category" v-on:change="categoriesSearch">
             <option value="">Scegli la categoria</option>
@@ -42,6 +42,41 @@
         </ul> --}}
 
     </div>
+
+    
+    <section id='restaurants'>
+        <div class="main-container">
+            <h2>I nostri Ristoranti</h2>
+            <div class="restaurant-container flex">
+                <div class="restaurant-card">
+                    <h3>nome ristorante</h3>
+                    <h4>indirizzo</h4>
+                    <h4>categoria</h4>
+                    <img src="" alt="immagine finta">
+                </div>
+                <div class="restaurant-card">
+                    <h3>nome ristorante</h3>
+                    <h4>indirizzo</h4>
+                    <h4>categoria</h4>
+                    <img src="" alt="immagine finta">
+                </div>
+                <div class="restaurant-card">
+                    <h3>nome ristorante</h3>
+                    <h4>indirizzo</h4>
+                    <h4>categoria</h4>
+                    <img src="" alt="immagine finta">
+                </div>
+                <div class="restaurant-card">
+                    <h3>nome ristorante</h3>
+                    <h4>indirizzo</h4>
+                    <h4>categoria</h4>
+                    <img src="" alt="immagine finta">
+                </div>
+            </div>
+
+        </div>
+        
+    </section>
 
     
 </div>   
