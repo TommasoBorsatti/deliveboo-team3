@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); 
 });
 
 Auth::routes();
@@ -22,7 +22,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Area pubblica
-Route::get('restaurants', 'Guest\GuestController@searchCat')->name('search');
+Route::get('/home', 'Guest\GuestController@searchCat')->name('search');
+Route::get('restaurant/{id}', 'Guest\GuestController@show')->name('restaurant.show');
+Route::get('restaurant/{id}/checkout', 'Guest\OrderController@checkout')->name('restaurant.checkout');
+Route::post('restaurant/checkout', 'Guest\OrderController@checkoutStore')->name('restaurant.checkout.store');
 
 // Area Privata!!
 

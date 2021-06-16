@@ -16,5 +16,10 @@ class GuestController extends Controller
         return view('guest.index', compact('users', 'categories'));
     }
 
+    public function show($id)
+    {
+        $restaurant = User::find($id)->first();
+        return view('guest.show', compact('restaurant'));
+    }
     
 }
