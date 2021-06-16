@@ -1,14 +1,21 @@
 
+h1{
+    color:$primary;
+    font-size: $fontTitle;
+}
 
-.main_container{
+h2{
+    color: $secondary;
+    font-size: $fontMax;
+}
+
+
+*.main_container{
     width:95%;
     margin: auto;
 
     //TYPO
-    h1{
-        color:$primary;
-        font-size: $fontMax;
-    }
+  
 
     & .mosaic_container{
         margin: auto;
@@ -63,5 +70,66 @@
                 flex-basis: 80%;
             }
         }
+
+
     }
+
+}
+
+section#restaurants{
+    background-color: $primary;
+    padding: 50px 0;
+    margin: 50px 0;
+
+    & .main-container{
+        width: 95%;
+        margin: auto;
+
+        & .restaurant-container{
+            width:100%;
+            margin: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+    
+            & .restaurant-card{
+                flex-basis: calc(50% - 20px);
+                background-color: white;
+                flex-grow: 1;
+                height: 200px;
+                border-radius: 10px;
+                padding: 10px;
+                margin: 10px;
+                position:relative;
+
+                .restaurant-img{
+                    width:100px;
+                }
+
+                & button{
+                    padding: 5px 15px;
+                    border-radius: 10px;
+                    background-color: $primary;
+                    color: $secondary;
+                    font-size: $fontReg;
+                    border: none;
+                    box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);  
+
+                }
+
+                & a{
+                    
+                    position:absolute;
+                    top:0;
+                    bottom:0;
+                    right:0;
+                    left:0;
+
+                }
+            }
+        }
+    
+    }
+
+    
+
 }

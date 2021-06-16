@@ -13,7 +13,7 @@
             <div v-for="(category, index) in categories" v-on:click="categoriesSearch(index)" class="category_card" :class="'cat' + category.name">    
             </div>
         </div>
-
+    
         {{-- <!--SELECT DI VUE-->
         <select class="mt-40" v-model="category" v-on:change="categoriesSearch">
             <option value="">Scegli la categoria</option>
@@ -26,12 +26,12 @@
             @endforeach
         </select> --}}
 
-        <ul >
+        {{-- <ul >
             <li v-for="restaurant in restaurants">
                 @{{ restaurant.restaurant }}
                 <a :href="'http://localhost:8000/restaurant/'+ restaurant.id">vai</a>
             </li>
-        </ul> 
+        </ul>  --}}
 
         {{-- <ul v-else>
             @foreach ($users as $user)
@@ -42,6 +42,29 @@
         </ul> --}}
 
     </div>
+
+    
+    <section id='restaurants'>
+        <div class="main-container">
+            <h2>I nostri Ristoranti</h2>
+            <div class="restaurant-container flex">
+                <div v-for='(restaurant,index) in restaurants' class="restaurant-card">
+                    <h3>@{{restaurant.restaurant}}</h3>
+                    <h4>@{{restaurant.address}}</h4>
+                    <h4 v-for='category in restaurant.categories'>@{{category.name}}</h4>
+                    <div class="img-box">
+                        <img :src='images[index]' class='restaurant-img' alt="immagine ristorante">
+                    </div>
+                    <div class="button-box">
+                        <button class='mt-10 mb-5'>Visita la pagina del ristorante</button>
+                    </div>
+                    <a :href="'http://localhost:8000/restaurant/'+ restaurant.id"></a>
+                </div>
+            </div>
+
+        </div>
+        
+    </section>
 
     
 </div>   
