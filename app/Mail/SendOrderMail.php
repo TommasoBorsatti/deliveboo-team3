@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -18,6 +19,7 @@ class SendOrderMail extends Mailable
      */
     public function __construct(Order $order)
     {
+        
         return $this->order = $order;
     }
 
