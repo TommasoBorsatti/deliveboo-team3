@@ -5,7 +5,7 @@
 @endsection
 
 @section('contentGuest')
-<form  action="{{route('restaurant.checkout.store')}}" method="POST" enctype="multipart/form-data">
+<form id="pay_form" action="{{route('restaurant.checkout.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('POST')
     <div >
@@ -32,9 +32,41 @@
     </div>
 
     
-    
-    <div class="mt-3">
+    {{-- submit form guest --}}
+    {{-- <div class="mt-3">
         <button type="submit" class="btn btn-primary">paga</button>
-    </div>
-</form>  
+    </div> --}}
+
+    {{-- submit braintree --}}
+    <div id="dropin-container"></div>
+    <input id="nonce" name="payment_method_nonce" type="hidden" />
+
+
+    <button type="submit" > Pagamento </button>
+
+    
+</form>
+
+<script>
+    var form = document.querySelector('#pay_form');
+    var token = "{{ $token }}"
+
+    braintree.dropin.create({
+    authorization: token,
+    selector: '#dropin-container'
+    }, function (err, instance) {
+    form.addEventListener('submit',function (event) {
+            event.preventDefault();
+            instance.requestPaymentMethod(function (err, payload) {
+                if (err) {
+                    console.log('Request Payment Method Error', err);
+                    return;
+                }
+                // Add the nonce to the form and submit
+                document.querySelector('#nonce').value = payload.nonce;
+                form.submit();
+            });
+        })
+    });
+</script>  
 @endsection
