@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Area pubblica
-Route::get('/home', 'Guest\GuestController@searchCat')->name('search');
+Route::get('/restaurants', 'Guest\GuestController@searchCat')->name('search');
 Route::get('restaurant/{id}', 'Guest\GuestController@show')->name('restaurant.show');
 Route::get('restaurant/{id}/checkout', 'Guest\OrderController@checkout')->name('restaurant.checkout');
 Route::post('restaurant/checkout', 'Guest\OrderController@checkoutStore')->name('restaurant.checkout.store');

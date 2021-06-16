@@ -9,20 +9,30 @@ use App\Guest;
 use App\Mail\SendOrderMail;
 use App\Order;
 use App\Plate;
+use Braintree\Gateway;
 use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
     public function checkout($id)
     {
+        $gateway = new Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+        
+        $token = $gateway->ClientToken()->generate();
+
         $restaurant = User::find($id)->first();
 
-        return view('guest.checkout', compact('restaurant'));
+        return view('guest.checkout', compact('restaurant', 'token'));
     }
 
     public function checkoutStore(Request $request)
     {
-        
+        dd($request->all());
         $data = $request->all();
         $data['total'] = 15;
         $data['plates'] = [ 3, 7];
@@ -40,6 +50,21 @@ class OrderController extends Controller
         $newOrder->plates()->attach($data['plates']);
 
         Mail::to($newOrder->email_ui)->send(new SendOrderMail($newOrder));
+
+        $gateway = new Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+
+        $result = $gateway->transaction()->sale([
+            'amount' => $data['total'],
+            'paymentMethodNonce' => $request->payment_method_nonce,
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
         
 
         return view('guest.success');
