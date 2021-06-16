@@ -4,7 +4,16 @@ new Vue({
             category: '',
             restaurants: [],
             categories: [],
+            images: [
+              'storage/images/rist1.jpg',
+              'storage/images/rist2.jpg', 
+              'storage/images/rist3.jpg',
+              'storage/images/rist4.jpg',
+              'storage/images/rist5.jpg'            
+            ],
+            
         },
+
         mounted:function(){
           
           axios.get('http://localhost:8000/api/restaurants-cat')

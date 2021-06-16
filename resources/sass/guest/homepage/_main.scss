@@ -94,10 +94,37 @@ section#restaurants{
             & .restaurant-card{
                 flex-basis: calc(50% - 20px);
                 background-color: white;
+                flex-grow: 1;
                 height: 200px;
                 border-radius: 10px;
                 padding: 10px;
                 margin: 10px;
+                position:relative;
+
+                .restaurant-img{
+                    width:100px;
+                }
+
+                & button{
+                    padding: 5px 15px;
+                    border-radius: 10px;
+                    background-color: $primary;
+                    color: $secondary;
+                    font-size: $fontReg;
+                    border: none;
+                    box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);  
+
+                }
+
+                & a{
+                    
+                    position:absolute;
+                    top:0;
+                    bottom:0;
+                    right:0;
+                    left:0;
+
+                }
             }
         }
     

@@ -26,12 +26,12 @@
             @endforeach
         </select> --}}
 
-        <ul >
+        {{-- <ul >
             <li v-for="restaurant in restaurants">
                 @{{ restaurant.restaurant }}
                 <a :href="'http://localhost:8000/restaurant/'+ restaurant.id">vai</a>
             </li>
-        </ul> 
+        </ul>  --}}
 
         {{-- <ul v-else>
             @foreach ($users as $user)
@@ -48,29 +48,17 @@
         <div class="main-container">
             <h2>I nostri Ristoranti</h2>
             <div class="restaurant-container flex">
-                <div class="restaurant-card">
-                    <h3>nome ristorante</h3>
-                    <h4>indirizzo</h4>
-                    <h4>categoria</h4>
-                    <img src="" alt="immagine finta">
-                </div>
-                <div class="restaurant-card">
-                    <h3>nome ristorante</h3>
-                    <h4>indirizzo</h4>
-                    <h4>categoria</h4>
-                    <img src="" alt="immagine finta">
-                </div>
-                <div class="restaurant-card">
-                    <h3>nome ristorante</h3>
-                    <h4>indirizzo</h4>
-                    <h4>categoria</h4>
-                    <img src="" alt="immagine finta">
-                </div>
-                <div class="restaurant-card">
-                    <h3>nome ristorante</h3>
-                    <h4>indirizzo</h4>
-                    <h4>categoria</h4>
-                    <img src="" alt="immagine finta">
+                <div v-for='(restaurant,index) in restaurants' class="restaurant-card">
+                    <h3>@{{restaurant.restaurant}}</h3>
+                    <h4>@{{restaurant.address}}</h4>
+                    <h4 v-for='category in restaurant.categories'>@{{category.name}}</h4>
+                    <div class="img-box">
+                        <img :src='images[index]' class='restaurant-img' alt="immagine ristorante">
+                    </div>
+                    <div class="button-box">
+                        <button class='mt-10 mb-5'>Visita la pagina del ristorante</button>
+                    </div>
+                    <a :href="'http://localhost:8000/restaurant/'+ restaurant.id"></a>
                 </div>
             </div>
 
