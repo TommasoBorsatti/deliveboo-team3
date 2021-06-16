@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/restaurants','Api\SearchCatController@getAll');
-Route::get('/restaurants','Api\CategoriesController@getCategories');
+Route::get('/restaurants-cat','Api\CategoriesController@getCategories');

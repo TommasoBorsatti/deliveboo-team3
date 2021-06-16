@@ -7,23 +7,24 @@ new Vue({
         },
         mounted:function(){
           
-          axios.get('http://localhost:8000/api/restaurants')
+          axios.get('http://localhost:8000/api/restaurants-cat')
           .then((result) => {
             this.categories = result.data;
           });
           
         },
         methods:{
-            categoriesSearch: function() {
-        let link = 'http://localhost:8000/api/restaurants'
-        axios.get(link,{
-            params: {
-              category: this.category
-            }
-          }).then((result)=>{
-              console.log(result.data);
-            this.restaurants = result.data;
-          });
+            categoriesSearch: function( index ) {
+            
+            let link = 'http://localhost:8000/api/restaurants'
+            axios.get(link,{
+                params: {
+                  category: 1
+                }
+              }).then((result)=>{
+                  console.log(result.data);
+                this.restaurants = result.data;
+            });
         }
         }
     });
