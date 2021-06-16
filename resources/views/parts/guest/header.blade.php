@@ -12,17 +12,17 @@
                             <a class="nav_link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
-                            <li class="">
+                            <li class="flex">
                                 <a class="nav_link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
-                        <li class="">
-                            <a id="navbarDropdown" class="" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <li class="flex">
+                            <a id="navbarDropdown" class="mr-15" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-                            <div class="" aria-labelledby="navbarDropdown">
-                                <a class="" href="{{ route('logout') }}"
+                            <div class="flex" aria-labelledby="navbarDropdown">
+                                <a class="nav_link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
