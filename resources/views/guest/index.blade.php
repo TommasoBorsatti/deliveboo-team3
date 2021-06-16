@@ -10,23 +10,7 @@
     <div class="main_container">
         <h1 class='main_title mt-20 mb-25'>La Selezione di CiBoo</h1>
         <div class="mosaic_container">
-            <div class="category_card">
-                <img src="{{asset('storage/images/pizza.jpg')}}" alt="pizza">
-            </div>
-            <div class="category_card">
-                <img src="{{asset('storage/images/sushi.jpg')}}" alt="sushi">
-            </div>
-            <div class="category_card">
-                <img src="{{asset('storage/images/hamburger.jpg')}}" alt="hamburger">
-            </div>
-            <div class="category_card icecream">
-                <img src="{{asset('storage/images/gelati.jpg')}}" alt="gelati">
-            </div>
-            <div class="category_card">
-                <img src="{{asset('storage/images/cinese.jpg')}}" alt="cinese">
-            </div>
-            <div class="category_card">
-                <img src="{{asset('storage/images/messicano.jpg')}}" alt="messicano">
+            <div v-for="category in categories" class="category_card" :class="'cat' + category.name">    
             </div>
         </div>
 
@@ -45,6 +29,7 @@
         <ul v-if="category != ''">
             <li v-for="restaurant in restaurants">
                 @{{ restaurant.restaurant }}
+                <a :href="'http://localhost:8000/restaurant/'+ restaurant.id">vai</a>
             </li>
         </ul> 
 

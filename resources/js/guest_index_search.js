@@ -2,7 +2,16 @@ new Vue({
         el: '#app',
         data: {
             category: '',
-            restaurants: []
+            restaurants: [],
+            categories: [],
+        },
+        mounted:function(){
+          
+          axios.get('http://localhost:8000/api/restaurants')
+          .then((result) => {
+            this.categories = result.data;
+          });
+          
         },
         methods:{
             categoriesSearch: function() {

@@ -22,19 +22,40 @@
         & > .category_card{
             flex-basis: 50% - 8;
             height: 250px;
-            background-color:$primary;
+            // background-color:$primary;
             margin: 4px;
-
-            & > img{
-                height:100%;
-                width:100%;
-                object-fit: fill;
-
-                &:hover{
-                cursor:pointer;
-                filter: grayscale(25%)
-                }
+                        
+            &.catPizza{
+                background-image: url('../storage/images/pizza.jpg');
+                background-size: cover;
             }
+            &.catSushi{
+                background-image: url('../storage/images/sushi.jpg');
+                background-size: cover;
+            }
+            &.catHamburger{
+                background-image: url('../storage/images/hamburger.jpg');
+                background-size: cover;
+            }
+            &.catGelato{
+                background-image: url('../storage/images/gelato.jpg');
+                background-size: cover;
+                background-position: center;
+            }
+            &.catCinese{
+                background-image: url('../storage/images/cinese.jpg');
+                background-size: cover;
+            }
+            &.catMessicano{
+                background-image: url('../storage/images/messicano.jpg');
+                background-size: cover;
+            }
+
+            &:hover{
+            cursor:pointer;
+            filter: grayscale(25%)
+            }
+            
         }
 
         @media only screen and (max-width: 900px) {
