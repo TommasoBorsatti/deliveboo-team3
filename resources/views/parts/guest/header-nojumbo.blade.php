@@ -3,7 +3,7 @@
     <div id="navbarSupportedContent">
         <nav>
             <div class="container flex">
-                <img class="nav_logo" src="{{asset('storage/images/ciBoo.png')}}" alt="logo-deliveboo">
+                <a class="nav_logo"  href="{{route('search')}}"><img  src="{{asset('storage/images/ciBoo.png')}}" alt="logo-deliveboo"></a>  
                 <!-- Right Side Of Navbar -->
                 <ul class="nav_login flex">
                     <!-- Authentication Links -->

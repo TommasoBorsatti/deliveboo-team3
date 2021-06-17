@@ -10,7 +10,7 @@
     <div class="main-container">
 
         <div class="restaurant_title_box mb-20 mt-20">
-            <h1 class="restaurant_title">Ristorante Scelto</h1>
+            <h1 class="restaurant_title">Effettua il tuo ordine da {{$restaurant->restaurant}}:</h1>
         </div>
 
         <section id="plates" class="flex">

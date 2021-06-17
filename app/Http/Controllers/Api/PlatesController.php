@@ -10,7 +10,9 @@ class PlatesController extends Controller
 {
     public function getPlates(Request $request)
     {
-        $plates = Plate::where('user_id', $request->id)->get();
+        $plates = Plate::where('user_id', $request->id)
+        ->where('available', 1)
+        ->get();
 
         return response()->json($plates);
     }
