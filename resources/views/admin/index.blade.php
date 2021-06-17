@@ -7,6 +7,15 @@
 @section('content')
     <div class="container" id="root">
         <h1 class="mb-3 mt-20 dash_title">Dashboard di: {{ $user->restaurant }}</h1>
+        {{-- Messaggio di alert cancellazione da rivedere --}}
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="mb-3 text-right">
             <a href="{{route('admin.plate.create')}}"><button type="button" class="btn btn_custom"> Aggiungi Piatto</button></a>
         </div>
@@ -43,15 +52,7 @@
             @endforeach           
         </div>
 
-        {{-- Messaggio di alert cancellazione da rivedere --}}
-        @if (session('message'))
-            <div class="alert alert-success" style="position: fixed; bottom: 30px; right: 30px">
-                {{ session('message') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
+        
 
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
