@@ -1,6 +1,5 @@
-
-<header class="dashboard_header">
-    
+<header class="">
+        
     <div id="navbarSupportedContent">
         <nav>
             <div class="container flex">
@@ -38,4 +37,4 @@
                 </ul>
             </div>
         </nav>
-    </div> 
+    </div>

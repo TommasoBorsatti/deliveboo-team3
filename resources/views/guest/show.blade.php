@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends('layouts.guest-nojumbo')
 
 @section('page_title')
     {{ $restaurant->restaurant }}
