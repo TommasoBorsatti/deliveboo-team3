@@ -1,0 +1,62 @@
+
+.main-container{
+    width: 95%;
+    margin: auto;
+    
+    .restaurant_title_box h1{
+       text-align: center;
+    }
+
+    section#plates{
+        
+       & .menu_box{
+            flex-basis: 60%;
+            background-color: $primary;
+            padding: 20px;
+            flex-wrap: wrap;
+            background-image: url('../storage/images/pattern.png');
+            background-size: cover;
+            
+
+            & .plate_card{
+                flex-basis: calc((100% / 3) - 20px);
+                margin: 10px;
+                border: 1px solid black;
+                background-color: white;
+                padding: 10px;
+
+                & h2{
+                    color: $third;
+                }
+
+                & .menu_img{
+                    width: 200px
+                }
+
+                & .plate_description{
+                    text-align: justify;
+                }
+
+                & .type_tag{
+                    font-size: $fontReg;
+                    color: $primary;
+                    padding: 8px 10px;
+                    background-color: rgba(42, 100, 120, 0.2);
+                    border: 2px solid $primary;
+                    display: inline-block;
+                    border-radius: 15px;
+                    box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);
+                }
+            }
+        }
+
+       & .cart_box{
+            flex-basis: 40%;
+            background-color: $secondary;
+            padding: 40px
+            
+       }
+
+
+    }
+}

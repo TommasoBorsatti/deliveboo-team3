@@ -6,9 +6,34 @@
 
 @section('contentGuest')
 <div id="rest_show">
-    <div v-for="plate in plates">
-        @{{ plate.name }}
+
+    <div class="main-container">
+
+        <div class="restaurant_title_box mb-20 mt-20">
+            <h1 class="restaurant_title">Ristorante Scelto</h1>
+        </div>
+
+        <section id="plates" class="flex">
+            <div class="menu_box flex">
+                <div v-for="plate in plates" class="plate_card">
+                    <h2 class="mb-15">@{{plate.name}}</h2>
+                    <img :src= "'http://localhost:8000/storage/'+ plate.plate_img" :alt="plate.name" class="mb-15 menu_img">
+                    <h3 class="mb-15">@{{plate.price}} €</h3>
+                    <p class="plate_description mb-15">@{{plate.description}}</p>
+                    <h5 class="type_tag">@{{plate.types}}</h5>
+                </div> 
+            </div>
+            <div class="cart_box">
+                <div class="cart_title_box mb-20 mt-20">
+                   <h3 class="cart_title">Carrello di NOMERISTORANTE</h3>
+                </div>
+            </div>
+
+        </section>
+
     </div>
+
+    
 
     
 </div>
@@ -20,7 +45,8 @@
             plates: [
 
             ],
-            cart: []
+            cart: [],
+
         },
         mounted:function(){
             axios.get('http://localhost:8000/api/restaurant-plates',{
@@ -29,9 +55,11 @@
                 }
             })
           .then((result) => {
-            this.plates = result.data;
+            this.plates = result.data;            
+
           });
         },
+
         methods:{
             
         }
