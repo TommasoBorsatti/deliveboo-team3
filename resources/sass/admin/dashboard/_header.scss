@@ -1,0 +1,41 @@
+header {
+
+    nav {
+        height: 80px;
+        background-color: $primary;
+        padding: 5px 0px;
+
+        & > div.container {
+            height: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .nav_logo {
+        height: 100%;
+    }
+
+    .nav_login {
+
+         & li a {
+         color: $secondary;  
+         font-size: $fontBig; 
+        }
+    }
+
+    //@include center-container-pY($mainContainer, 80px);
+
+
+    .box_video {
+        height: 600px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: grey;
+
+        video { 
+            height: 600px;
+            width: 100%;
+        }
+    }
+}

@@ -8,6 +8,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
     <script src="https://js.braintreegateway.com/web/dropin/1.30.0/js/dropin.js"></script>
     <link rel="stylesheet" href="{{asset('css/guest.css')}}">
+    {{-- Fontawesome --}}
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css">
 </head>
 <body>
 

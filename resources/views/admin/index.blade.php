@@ -6,9 +6,9 @@
 
 @section('content')
     <div class="container" id="root">
-        <h1 class="mb-3">Dashboard di: {{ $user->restaurant }}</h1>
+        <h1 class="mb-3 mt-20 dash_title">Dashboard di: {{ $user->restaurant }}</h1>
         <div class="mb-3 text-right">
-            <a href="{{route('admin.plate.create')}}"><button type="button" class="btn btn-success"> Aggiungi Piatto</button></a>
+            <a href="{{route('admin.plate.create')}}"><button type="button" class="btn btn_custom"> Aggiungi Piatto</button></a>
         </div>
         
         <div class="card-deck">
@@ -22,8 +22,8 @@
                     <p>Disponibile: {!! $plate->available ? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'!!}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="{{route('admin.plate.edit', $plate->id )}}"><button type="button" class="btn btn-success "><i class="fas fa-pencil-alt"></i></button></a>
-                    <button  v-on:click="show = true" v-if="show == false" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    <a href="{{route('admin.plate.edit', $plate->id )}}"><button type="button" class="btn btn_custom "><i class="fas fa-pencil-alt"></i></button></a>
+                    <button  v-on:click="show = true" v-if="show == false" class="btn btn_delete"><i class="far fa-trash-alt"></i></button>
                     
                     <div v-if="show == true" class="d-inline">
                         
@@ -31,11 +31,11 @@
                             @csrf
                             @method('DELETE')
                             
-                            <button type="submit" class="btn btn-danger">si </button>
+                            <button type="submit" class="btn btn_delete">si </button>
                             
                         </form>
                         
-                        <button v-on:click="show = false"  class="btn btn-danger">no</button>
+                        <button v-on:click="show = false"  class="btn btn_delete">no</button>
                     </div>
                         
                 </div>
