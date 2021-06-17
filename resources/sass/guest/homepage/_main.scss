@@ -33,11 +33,12 @@ h2{
         padding: 25px;
         justify-content: center;
         
+        
         & > .category_card{
             flex-basis: 50% - 8;
             height: 250px;
-            
-            margin: 4px;
+                      
+            margin: 1px;
                         
             &.catPizza{
                 background-image: url('../storage/images/pizza.jpg');
@@ -113,6 +114,7 @@ section#restaurants{
                 padding: 10px;
                 margin: 10px;
                 position:relative;
+                box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
 
                 .restaurant-img{
                     width:100px;

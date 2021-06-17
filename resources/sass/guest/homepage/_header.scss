@@ -1,9 +1,13 @@
 header {
-
+    padding: 10px 0px;
+    
     nav {
         height: 80px;
-        background-color: $primary;
         padding: 5px 0px;
+        background-color: $primary;
+        background-image: url('../storage/images/pattern.png');
+        background-size: contain;
+    
 
         & > div.container {
             height: 100%;
@@ -21,6 +25,9 @@ header {
          & li a {
          color: $secondary;  
          font-size: $fontBig; 
+         text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+         align-items: center;
+         height: 100%;
         }
     }
 
