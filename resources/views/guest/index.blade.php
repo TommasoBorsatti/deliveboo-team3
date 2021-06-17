@@ -14,33 +14,6 @@
                 <a class= "ancora" href="#restaurants"></a>   
             </div>
         </div>
-    
-        {{-- <!--SELECT DI VUE-->
-        <select class="mt-40" v-model="category" v-on:change="categoriesSearch">
-            <option value="">Scegli la categoria</option>
-            @foreach ($categories as $category)
-                
-                <option  v-bind:value="{{ $category->id }}">
-                    {{ $category->name }}
-                </option>
-                
-            @endforeach
-        </select> --}}
-
-        {{-- <ul >
-            <li v-for="restaurant in restaurants">
-                @{{ restaurant.restaurant }}
-                <a :href="'http://localhost:8000/restaurant/'+ restaurant.id">vai</a>
-            </li>
-        </ul>  --}}
-
-        {{-- <ul v-else>
-            @foreach ($users as $user)
-                <li>
-                    {{ $user->restaurant }}
-                </li>
-            @endforeach
-        </ul> --}}
 
     </div>
 
@@ -49,14 +22,16 @@
         <div class="main-container">
             <h2>Ecco i risultati della tua ricerca per: @{{categoryName}}</h2>
             <div class="restaurant-container flex">
-                <div v-for='(restaurant,index) in restaurants' class="restaurant-card">
-                    <h3>@{{restaurant.restaurant}}</h3>
-                    <h4>@{{restaurant.address}}</h4>
-                    <h4 v-for='category in restaurant.categories'>@{{category.name}}</h4>
-                    <div class="img-box">
+                <div v-for='(restaurant,index) in restaurants' class="restaurant-card flex">
+                    <div class="restaurant_card_textbox">
+                        <h3>@{{restaurant.restaurant}}</h3>
+                        <h4 class="mt-10 mb-10">@{{restaurant.address}}</h4>
+                        <h5 class= "mt-10 mb-10 mr-10 category_tag" v-for='category in restaurant.categories'>@{{category.name}}</h4>
+                    </div>
+                    <div class="restaurant_img_box">
                         <img :src='images[index]' class='restaurant-img' alt="immagine ristorante">
                     </div>
-                    <div class="button-box">
+                    <div class="button-box flex">
                         <button class='mt-10 mb-5'>Visita la pagina del ristorante</button>
                     </div>
                     <a :href="'http://localhost:8000/restaurant/'+ restaurant.id"></a>
