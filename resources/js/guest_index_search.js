@@ -2,6 +2,7 @@ new Vue({
         el: '#app',
         data: {
             category: '',
+            categoryName: '' ,
             restaurants: [],
             categories: [],
             images: [
@@ -23,8 +24,10 @@ new Vue({
           
         },
         methods:{
-            categoriesSearch: function( index ) {
+            categoriesSearch: function( index, categoryName ) {
             
+            this.categoryName = categoryName;
+
             let link = 'http://localhost:8000/api/restaurants'
             axios.get(link,{
                 params: {

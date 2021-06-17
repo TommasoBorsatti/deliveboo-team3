@@ -10,7 +10,8 @@
     <div class="main_container">
         <h1 class='main_title mt-20 mb-25'>La Selezione di CiBoo</h1>
         <div class="mosaic_container">
-            <div v-for="(category, index) in categories" v-on:click="categoriesSearch(index)" class="category_card" :class="'cat' + category.name">    
+            <div v-for="(category, index) in categories" v-on:click="categoriesSearch(index, category.name)" class="category_card" :class="'cat' + category.name"> 
+                <a class= "ancora" href="#restaurants"></a>   
             </div>
         </div>
     
@@ -44,9 +45,9 @@
     </div>
 
     
-    <section id='restaurants'>
+    <section id='restaurants' v-if= "categoryName != ''">
         <div class="main-container">
-            <h2>I nostri Ristoranti</h2>
+            <h2>Ecco i risultati della tua ricerca per: @{{categoryName}}</h2>
             <div class="restaurant-container flex">
                 <div v-for='(restaurant,index) in restaurants' class="restaurant-card">
                     <h3>@{{restaurant.restaurant}}</h3>

@@ -14,7 +14,14 @@ h2{
     width:95%;
     margin: auto;
 
-    //TYPO
+
+    & a.ancora{
+        position: absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+    }
   
 
     & .mosaic_container{
@@ -29,33 +36,39 @@ h2{
         & > .category_card{
             flex-basis: 50% - 8;
             height: 250px;
-            // background-color:$primary;
+            
             margin: 4px;
                         
             &.catPizza{
                 background-image: url('../storage/images/pizza.jpg');
                 background-size: cover;
+                position: relative;
             }
             &.catSushi{
                 background-image: url('../storage/images/sushi.jpg');
                 background-size: cover;
+                position: relative;
             }
             &.catHamburger{
                 background-image: url('../storage/images/hamburger.jpg');
                 background-size: cover;
+                position: relative;
             }
             &.catGelato{
                 background-image: url('../storage/images/gelato.jpg');
                 background-size: cover;
                 background-position: center;
+                position: relative;
             }
             &.catCinese{
                 background-image: url('../storage/images/cinese.jpg');
                 background-size: cover;
+                position: relative;
             }
             &.catMessicano{
                 background-image: url('../storage/images/messicano.jpg');
                 background-size: cover;
+                position: relative;
             }
 
             &:hover{
