@@ -41,8 +41,8 @@
 
     <div class="jumbotron">
         <div class="box_video">
-            <video controls>
-                <source src="video.mp4" type="video/mp4">
+            <video playsinline autoplay muted loop poster="" class='banner_video'> 
+                <source src="{{asset('storage/images/bannerCiboo.mp4')}}" type="video/mp4" >
             </video>
         </div>
     </div>

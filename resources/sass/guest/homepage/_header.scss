@@ -33,9 +33,10 @@ header {
         margin: 0 auto;
         background-color: grey;
 
-        video { 
+        .banner_video { 
             height: 600px;
             width: 100%;
+            object-fit: cover;
         }
     }
 }
