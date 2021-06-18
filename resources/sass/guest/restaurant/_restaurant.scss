@@ -3,94 +3,141 @@
     width: 95%;
     margin: auto;
     
-    .restaurant_title_box h1{
+    .restaurant_title_box h1, 
+    .restaurant_title_box h2{
        text-align: center;
+       color: $primary;
     }
 
     section#plates{
+        //Media query 815px per layout pagina tablet
+        @media screen and (max-width:815px) {
+            flex-direction: column-reverse;
+
+        }
+
         
        & .menu_box{
-            flex-basis: 60%;
+            flex-basis: 70%;
             background-color: $primary;
             padding: 20px;
             flex-wrap: wrap;
             background-image: url('../storage/images/pattern.png');
             background-size: cover;
+
+            //Media query 590px per layout pagina tablet
+            @media screen and (max-width:590px) {
+            justify-content: center;
+    
+            }
+
+            
             
 
             & .plate_card{
                 flex-basis: calc((100% / 3) - 20px);
                 margin: 10px;
-                border: 1px solid black;
                 background-color: white;
                 padding: 10px;
                 flex-wrap: wrap;
+                border-radius: 20px;
+
+                //Media query 768px per layout pagina tablet
+                 @media screen and (max-width:1200px) {
+                flex-basis: calc(50% - 20px);
+
+                }
+
+                //Media query 768px per layout pagina tablet
+                @media screen and (max-width:590px) {
+                flex-basis: calc(75%);
+        
+                }
+
+
+                & .card_intro {
+                    flex-basis: 100%;
+                    justify-content: center;
+                    
+                    & h2.card_title{
+                        text-align: center;
+                    }
+
+                    & .menu_img{
+                        width: 200px;
+                        margin: auto;
+                        display: block;
+                    }
+                }
+
+                & .plate_info, & .plate_quantity {
+                    flex-basis: 100%;
+                    
+
+                    & .plate_description{
+                        font-size: $fontReg;
+                        
+                    }
+                }
+
+                & .plate_quantity {
+                    //border: 2px solid blue;
+                    text-align: center;
+                    justify-content: space-around;
+                    align-items: flex-end;
+                   
+
+                    & input.quantity{
+                        width:40px;
+                    }
+        
+                    button.add_btn{
+                        cursor:pointer;
+                        padding: 4px 6px;
+                        color: white;
+                        background-color: $primary;
+                        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                        
+                    }
+                }
+
+                & .plate_types{
+                    flex-basis: 100%;
+                    justify-content: space-evenly;
+                    flex-wrap: wrap;
+                    align-items: center;
+
+                    & .type_tag{
+                        font-size: $fontSmall;
+                        color: $primary;
+                        padding: 8px 10px;
+                        background-color: rgba(0, 108, 144, 0.2);
+                        border: 2px solid $primary;
+                        display: inline-block;
+                        border-radius: 15px;
+                        box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);
+                        margin: 4px 3px;
+                    }
+                }
 
                 & h2{
                     color: $third;
                 }
 
-                & h3{
+                & h3.price{
                     color: $primary;
                     font-size: $fontBig;
                     font-weight: $fontBold;
                 }
 
-                & .menu_img{
-                    width: 200px
-                }
-
-                & .plate_description{
-                    font-size: $fontReg;
-                    text-align: justify;
-                }
-                
-
-                & .type_tag{
-                    font-size: $fontReg;
-                    color: $primary;
-                    padding: 8px 10px;
-                    background-color: rgba(0, 108, 144, 0.2);
-                    border: 2px solid $primary;
-                    display: inline-block;
-                    border-radius: 15px;
-                    box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);
-                    margin: 4px 3px;
-                }
-
-                .card_intro {
-                    flex-basis: 100%;
-                }
-
-                .plate_info, .plate_quantity {
-                    flex-basis: 50%;
-                }
-
-                .plate_quantity {
-                    //border: 2px solid blue;
-                    text-align: center;
-
-                    i.fa-plus  {
-                        color: $accent_1;
-                    }
-
-                    i.fa-minus {
-                        color: $accent_2;
-                    }
-
-                    i.fa-cart-plus {
-                        color: $primary;
-                    }
-                }
-            
-
             }
         }
 
        & .cart_box{
-            flex-basis: 40%;
+            flex-basis: 30%;
             background-color: $secondary;
             padding: 20px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 
             & .cart_title{
                 text-align: center;
@@ -102,10 +149,10 @@
             }
 
             & .cart_plate {
-                justify-content: space-around;
+                justify-content: space-between;
                 background-color: white;
                 border-radius: 20px;
-                padding: 6px 8px;
+                padding: 6px 30px;
                 align-items: center;
                 box-shadow:2px 2px 2px rgba(0,0,0, 0.3);
 
@@ -125,6 +172,18 @@
                 padding: 12px 8px;
                 align-items: center;
                 text-align: center;
+
+                .empty_btn{
+                    cursor:pointer;
+                    background-color: white;
+                    padding: 8px 25px;
+                    font-size: $fontReg;
+                    color: $primary;
+                    border-radius: 20px;
+                    border: none;
+                    box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
+
+                }
             }
        }
 

@@ -19,3 +19,25 @@ h1.dash_title{
     background-color: $primary;
     color: white;
 }
+
+.type_tag{
+    font-size: $fontSmall;
+    color: $primary;
+    padding: 8px 10px;
+    background-color: rgba(0, 108, 144, 0.2);
+    border: 2px solid $primary;
+    display: inline-block;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);
+    margin: 4px 3px;
+}
+
+.yes_icon{
+    font-size: $fontReg;
+    color: $accent_1;
+}
+
+.no_icon{
+    font-size: $fontReg;
+    color: $accent_2;
+}

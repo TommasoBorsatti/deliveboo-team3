@@ -28,9 +28,9 @@
                     <h5 class="card-title">{{ $plate->name }}</h5>
                     <h3>{{ $plate->price }} &euro;</h3>
                     <p class="card-text">{{ $plate->description }}</p>
-                    <p>Disponibile: {!! $plate->available ? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'!!}</p>
+                    <p>Disponibile: {!! $plate->available ? '<i class="far fa-check-circle yes_icon"></i>' : '<i class="far fa-times-circle no_icon"></i>'!!}</p>
                     @foreach ($plate->types as $type)
-                        <span> {{ $type->name }}</span>
+                        <h5 class='type_tag'> {{ $type->name }}</h5>
                     @endforeach
                 </div>
                 <div class="card-footer">
