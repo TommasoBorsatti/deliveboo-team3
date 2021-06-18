@@ -29,6 +29,9 @@
                     <h3>{{ $plate->price }} &euro;</h3>
                     <p class="card-text">{{ $plate->description }}</p>
                     <p>Disponibile: {!! $plate->available ? '<i class="far fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>'!!}</p>
+                    @foreach ($plate->types as $type)
+                        <span> {{ $type->name }}</span>
+                    @endforeach
                 </div>
                 <div class="card-footer">
                     <a href="{{route('admin.plate.edit', $plate->id )}}"><button type="button" class="btn btn_custom "><i class="fas fa-pencil-alt"></i></button></a>

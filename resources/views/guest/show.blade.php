@@ -15,7 +15,7 @@
 
         <section id="plates" class="flex">
             <div class="menu_box flex">
-                <div v-for="plate in plates" class="plate_card flex">
+                <div v-for="(plate, index) in plates" class="plate_card flex">
                     <div class="card_intro">
                         <h2 class="mb-15">@{{plate.name}}</h2>
                         <img :src= "'http://localhost:8000/storage/'+ plate.plate_img" :alt="plate.name" class="mb-15 menu_img">
@@ -27,9 +27,9 @@
                     </div>
                     <div class="plate_quantity">
                         <i class="fas fa-plus"></i>
-                        <i class="quantity mr-10 ml-10">5</i>
+                        <input class="quantity mr-10 ml-10" type="number" v-model="plate.quantity" min="0" placeholder="Inserisci la quantità">
                         <i class="fas fa-minus"></i>
-                        <p class="mt-15">Aggiungi: <i class="fas fa-cart-plus"></i></p>
+                        <p v-on:click="addCart(plate, index)" class="mt-15">Aggiungi: <i class="fas fa-cart-plus"></i></p>
                     </div>
                 </div> 
             </div>
@@ -37,17 +37,18 @@
                 <div class="cart_title_box mb-40 mt-20">
                    <h3 class="cart_title">Il tuo ordine per: <em>{{$restaurant->restaurant}}</em></h3>
                 </div>
-                <div class="cart_plates_container mb-20">
-                    <div class="cart_plate mb-15 flex">
+                <div  class="cart_plates_container mb-20">
+                    <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
                         <div>
-                            <i class="mr-5">5</i><span class="mr-10">&times;</span>
-                            <h3>Nome Piatto</h3>
+                            <i class="mr-5">@{{item.quantity}}</i><span class="mr-10">&times;</span>
+                            <h3>@{{item.name}}</h3>
                         </div>
-                        <i class="fas fa-trash-alt"></i>
+                        <i v-on:click="removeCart(index)" class="fas fa-trash-alt"></i>
                     </div>
                 </div>
                 <div class="cart_total">
-                    <p><strong>Totale:</strong> <span>15</span> &euro;</p>
+                    <p><strong>Totale:</strong> <span>@{{ total }}</span> &euro;</p>
+                    <button v-on:click="clearCart">svuota</button>
                 </div>
             </div>
         </section>
@@ -59,25 +60,69 @@
     new Vue({
         el: '#rest_show',
         data: {
-            plates: [
-
-            ],
+            plates: [],
             cart: [],
-
+            total: 0,
+            plateTotal: 0
         },
         mounted:function(){
+            if (localStorage.getItem('cart')) {
+                try {
+                    this.cart = JSON.parse(localStorage.getItem('cart'));
+                } catch(e) {
+                    localStorage.removeItem('cart');
+                }
+            }
+            if (localStorage.total) {
+                this.total = parseFloat(localStorage.total);
+            }
             axios.get('http://localhost:8000/api/restaurant-plates',{
                 params: {
                     id : {{ $restaurant->id }} 
                 }
             })
           .then((result) => {
-            this.plates = result.data;            
-
+            this.plates = result.data;
+            for (let i = 0; i < this.plates.length; i++) {
+                this.plates[i].quantity = 0;               
+            }
           });
         },
-
         methods:{
+            addCart: function( plate, index){
+                if ( plate.quantity <= 0) {
+                    return
+                }
+                
+                if(!this.cart.some(cartPlate => cartPlate.name === plate.name)){
+                    plate.amount = plate.price * plate.quantity;
+                    this.cart.push(plate);
+                    this.total = 0;
+                    for (let i = 0; i < this.cart.length; i++) {
+                        
+                        this.total += this.cart[i].amount;                   
+                    }
+                localStorage.total = this.total;
+                }   
+                
+                this.saveCart();                
+            },
+            removeCart: function(index){
+                this.total -= this.cart[index].amount;
+                localStorage.total = this.total;
+                this.cart.splice(index, 1);               
+                this.saveCart(); 
+            },
+            clearCart: function(){
+                this.cart = [];
+                this.total = 0;
+                localStorage.total = this.total;
+                this.saveCart(); 
+            },
+            saveCart: function(){
+                const parsed = JSON.stringify(this.cart);
+                localStorage.setItem('cart', parsed); 
+            },
             
         }
     });
