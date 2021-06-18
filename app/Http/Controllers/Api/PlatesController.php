@@ -14,6 +14,12 @@ class PlatesController extends Controller
         ->where('available', 1)
         ->get();
 
+        //Associazione dei Types ai Plates
+        foreach ($plates as $plate) {
+           
+            $plate['types'] = $plate->types;
+        }
+
         return response()->json($plates);
     }
 }

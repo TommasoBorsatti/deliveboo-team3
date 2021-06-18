@@ -29,23 +29,31 @@
                     color: $third;
                 }
 
+                & h3{
+                    color: $primary;
+                    font-size: $fontBig;
+                    font-weight: $fontBold;
+                }
+
                 & .menu_img{
                     width: 200px
                 }
 
                 & .plate_description{
-                    text-align: justify;
+                    font-size: $fontReg;
                 }
+                
 
                 & .type_tag{
                     font-size: $fontReg;
                     color: $primary;
                     padding: 8px 10px;
-                    background-color: rgba(42, 100, 120, 0.2);
+                    background-color: rgba(0, 108, 144, 0.2);
                     border: 2px solid $primary;
                     display: inline-block;
                     border-radius: 15px;
                     box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);
+                    margin: 4px 3px;
                 }
             }
         }
@@ -53,7 +61,14 @@
        & .cart_box{
             flex-basis: 40%;
             background-color: $secondary;
-            padding: 40px
+            padding: 20px;
+
+            & .cart_title{
+                text-align: center;
+                color: $primary;
+                font-size: $fontBig;
+                text-decoration: underline;
+            }
             
        }
 
