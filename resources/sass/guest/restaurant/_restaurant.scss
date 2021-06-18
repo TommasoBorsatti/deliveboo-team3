@@ -24,6 +24,7 @@
                 border: 1px solid black;
                 background-color: white;
                 padding: 10px;
+                flex-wrap: wrap;
 
                 & h2{
                     color: $third;
@@ -41,6 +42,7 @@
 
                 & .plate_description{
                     font-size: $fontReg;
+                    text-align: justify;
                 }
                 
 
@@ -55,6 +57,33 @@
                     box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);
                     margin: 4px 3px;
                 }
+
+                .card_intro {
+                    flex-basis: 100%;
+                }
+
+                .plate_info, .plate_quantity {
+                    flex-basis: 50%;
+                }
+
+                .plate_quantity {
+                    //border: 2px solid blue;
+                    text-align: center;
+
+                    i.fa-plus  {
+                        color: $accent_1;
+                    }
+
+                    i.fa-minus {
+                        color: $accent_2;
+                    }
+
+                    i.fa-cart-plus {
+                        color: $primary;
+                    }
+                }
+            
+
             }
         }
 
@@ -68,10 +97,36 @@
                 color: $primary;
                 font-size: $fontBig;
                 text-decoration: underline;
+                font-size: 30px;
+
+            }
+
+            & .cart_plate {
+                justify-content: space-around;
+                background-color: white;
+                border-radius: 20px;
+                padding: 6px 8px;
+                align-items: center;
+                box-shadow:2px 2px 2px rgba(0,0,0, 0.3);
+
+                h3 {
+                    display: inline-block;
+                    color: $primary;
+                }
+
+                i.fa-trash-alt {
+                    color: $primary;
+                }
             }
             
+            .cart_total {
+                background-color:  $primary;
+                color: white;
+                padding: 12px 8px;
+                align-items: center;
+                text-align: center;
+            }
        }
-
 
     }
 }
