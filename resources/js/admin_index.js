@@ -1,9 +1,10 @@
 new Vue({
     el: '#root',
     data: {
-        show: false
+        show: false,
+        index: 0
     },
-    methods:{
+    methods:{ 
         
     }
 });

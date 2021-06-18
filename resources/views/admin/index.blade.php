@@ -35,19 +35,21 @@
                 </div>
                 <div class="card-footer">
                     <a href="{{route('admin.plate.edit', $plate->id )}}"><button type="button" class="btn btn_custom "><i class="fas fa-pencil-alt"></i></button></a>
-                    <button  v-on:click="show = true" v-if="show == false" class="btn btn_delete"><i class="far fa-trash-alt"></i></button>
+
+
                     
-                    <div v-if="show == true" class="d-inline">
+                    
+                     <div class="d-inline"> 
                         
-                        <form class="d-inline" action="{{route('admin.plate.destroy', [ 'plate' => $plate->id ])}}" method="POST">
+                        <form class="d-inline" action="{{route('admin.plate.destroy', [ 'plate' => $plate->id ])}}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare il piatto?');">
                             @csrf
                             @method('DELETE')
                             
-                            <button type="submit" class="btn btn_delete">si </button>
+                            <button type="submit" class="btn btn_delete"><i class="far fa-trash-alt"></i></button>
                             
                         </form>
                         
-                        <button v-on:click="show = false"  class="btn btn_delete">no</button>
+                        {{-- <button v-on:click="show = false"  class="btn btn_delete">no</button> --}}
                     </div>
                         
                 </div>
