@@ -89,6 +89,8 @@
                     text-align: center;
                     justify-content: space-around;
                     align-items: flex-end;
+
+                    
                    
 
                     & input.quantity{
@@ -163,15 +165,17 @@
                 align-items: center;
                 box-shadow:2px 2px 2px rgba(0,0,0, 0.3);
 
-                .part_1{
-                    
-                 
-                    flex-basis: 75%;
+                .cart_plate_left{
                     min-width: 100px;
-                    flex-wrap: nowrap;
+               
+
+                    span{
+                        color: $primary;
+                        font-weight: $fontBold;
+                    }
                 }
 
-                .part_2{
+                .cart_plate_right{
                     
                     
                     flex-basis: 25%;
@@ -210,22 +214,34 @@
                 padding: 12px 8px;
                 align-items: center;
                 text-align: center;
+                flex-wrap: wrap;
 
-                .empty_btn{
-                    cursor:pointer;
-                    background-color: white;
-                    padding: 8px 25px;
-                    font-size: $fontReg;
-                    color: $primary;
-                    border-radius: 20px;
-                    border: none;
-                    box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
+                .total_info{
+                    flex-basis: 100%;
 
                 }
 
-                a{
-                    font-weight: $fontBold;
+                .total_action{
+                    flex-basis: 100%;
+
+                    .empty_btn{
+                        cursor:pointer;
+                        background-color: white;
+                        padding: 8px 25px;
+                        font-size: $fontReg;
+                        color: $primary;
+                        border-radius: 20px;
+                        border: none;
+                        box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
+                        
+                    }
+    
+                    a{
+                        font-weight: $fontBold;
+                    }
+    
                 }
+
             }
        }
 

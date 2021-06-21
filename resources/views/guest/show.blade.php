@@ -25,7 +25,7 @@
                         <h3 class="mb-15 price">@{{plate.price}} €</h3>
                         <div class="quantity-box">
                             
-                            <input class="quantity mr-10 ml-10" type="number" v-model="plate.quantity" min="0" placeholder="Inserisci la quantità">
+                            <input class="quantity mr-10 ml-10" type="number" v-model="plate.quantity">
                             <button v-on:click="addCart(plate, index)" class="mt-15 add_btn">Aggiungi <i class="fas fa-cart-plus"></i></button>
                         </div>
                     </div>
@@ -44,21 +44,26 @@
                 <div  class="cart_plates_container mb-20">
                     <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
 
-                        <div class='part_1'>
-                            <i class="mr-5">@{{item.quantity}}</i><span class="mr-10">&times;</span>
+                        <div class='cart_plate_left'>
                             <h3 class = 'mr-5'>@{{item.name}}</h3>
+                            <span>@{{item.amount}} &euro;</span>
                         </div>
-                        <div class='part_2 flex'>
+                        <div class='cart_plate_right flex'>
                             <button class="quantity_btn mr-5" v-on:click="increaseQuantity(item)">+</button>
+                            <span class="mr-5">@{{item.quantity}}</span>
                             <button class="quantity_btn mr-5" v-on:click="decreaseQuantity(item)">-</button>
                             <i v-on:click="removeCart(index)" class="fas fa-trash-alt ml-5"></i> 
                         </div>
                     </div>
                 </div>
-                <div class="cart_total">
-                    <p class="mb-10"><strong>Totale:</strong> <span>@{{ total }}</span> &euro;</p>
-                    <a href='{{route('restaurant.checkout', $restaurant->id)}}' class="empty_btn" v-if= 'cart.length > 0'>Vai al CheckOut</a>
-                    <button class="empty_btn" v-on:click="clearCart"><i class="fas fa-trash-alt"></i></button>
+                <div class="cart_total flex">
+                    <div class="total_info mb-10">
+                        <p><strong>Totale:</strong><span>@{{ total }}</span> &euro;</p>
+                    </div>
+                    <div class="total_action">
+                        <a href='{{route('restaurant.checkout', $restaurant->id)}}' class="empty_btn mr-5" v-if= 'cart.length > 0'>Vai al CheckOut</a>
+                        <button class="empty_btn mt-15" v-on:click="clearCart"><i class="fas fa-trash-alt"></i></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -147,9 +152,7 @@
 
                 localStorage.total = this.total;
                 this.saveCart();
-                } else if (plate.quantity == 1){
-                    this.clearCart(plate.id);
-                }
+                } 
                 
             },
             removeCart: function(index){
