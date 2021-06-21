@@ -51,6 +51,7 @@
                 </div>
                 <div class="cart_total">
                     <p class="mb-10"><strong>Totale:</strong> <span>@{{ total }}</span> &euro;</p>
+                    <a href='{{route('restaurant.checkout', $restaurant->id)}}' class="empty_btn" v-if= 'cart.length > 0'>Vai al CheckOut</a>
                     <button class="empty_btn" v-on:click="clearCart"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
