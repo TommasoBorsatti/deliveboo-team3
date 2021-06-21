@@ -31,4 +31,5 @@ Route::post('restaurant/checkout', 'Guest\OrderController@checkoutStore')->name(
 
 Route::prefix('admin')->name('admin.')->namespace('User')->middleware('auth')->group( function() {
     Route::resource('plate', 'PlateController');
+    Route::get('restaurant/{id}/orders', 'StatsController@orders')->name('restaurant.orders');
 });
