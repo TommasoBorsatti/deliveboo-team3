@@ -34,7 +34,6 @@ new Vue({
                   category: index + 1
                 }
               }).then((result)=>{
-                  console.log(result.data);
                 this.restaurants = result.data;
             });
         }
