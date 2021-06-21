@@ -2,6 +2,10 @@
 .card_custom{
     min-width: calc((100% / 3) - 30px);
     max-width: calc((100% / 3) - 30px );  
+
+    img{
+        height:225px;
+    }
 }
 
 h1.dash_title{

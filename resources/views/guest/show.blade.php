@@ -45,9 +45,9 @@
                     <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
                         <div>
                             <i class="mr-5">@{{item.quantity}}</i><span class="mr-10">&times;</span>
-                            <button v-on:click="increaseQuantity(item)">+</button>
-                            <button v-on:click="decreaseQuantity(item)">-</button>
-                            <h3>@{{item.name}}</h3>
+                            <h3 class = 'mr-5'>@{{item.name}}</h3>
+                            <button class="quantity_btn" v-on:click="increaseQuantity(item)">+</button>
+                            <button class="quantity_btn" v-on:click="decreaseQuantity(item)">-</button>
                         </div>
                         <i v-on:click="removeCart(index)" class="fas fa-trash-alt"></i>
                     </div>
