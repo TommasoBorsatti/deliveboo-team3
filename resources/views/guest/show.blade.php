@@ -24,6 +24,7 @@
                     <div class="plate_quantity flex mb-15">
                         <h3 class="mb-15 price">@{{plate.price}} €</h3>
                         <div class="quantity-box">
+                            
                             <input class="quantity mr-10 ml-10" type="number" v-model="plate.quantity" min="0" placeholder="Inserisci la quantità">
                             <button v-on:click="addCart(plate, index)" class="mt-15 add_btn">Aggiungi <i class="fas fa-cart-plus"></i></button>
                         </div>
@@ -44,6 +45,8 @@
                     <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
                         <div>
                             <i class="mr-5">@{{item.quantity}}</i><span class="mr-10">&times;</span>
+                            <button v-on:click="increaseQuantity(item)">+</button>
+                            <button v-on:click="decreaseQuantity(item)">-</button>
                             <h3>@{{item.name}}</h3>
                         </div>
                         <i v-on:click="removeCart(index)" class="fas fa-trash-alt"></i>
@@ -67,7 +70,8 @@
             plates: [],
             cart: [],
             total: 0,
-            plateTotal: 0
+            plateTotal: 0,
+            restaurantId: {{ $restaurant->id }}
         },
         mounted:function(){
             if (localStorage.getItem('cart')) {
@@ -79,6 +83,9 @@
             }
             if (localStorage.total) {
                 this.total = parseFloat(localStorage.total);
+            }
+            if ( !this.cart.some(cartId => cartId.user_id == this.restaurantId) ){
+                this.clearCart();
             }
             axios.get('http://localhost:8000/api/restaurant-plates',{
                 params: {
@@ -110,6 +117,28 @@
                 }   
                 
                 this.saveCart();                
+            },
+            increaseQuantity: function(plate){
+                plate.quantity++;
+                plate.amount = plate.price * plate.quantity;
+                this.total = 0;
+                for (let i = 0; i < this.cart.length; i++) {
+                    
+                    this.total += this.cart[i].amount;                   
+                }
+                localStorage.total = this.total;
+                this.saveCart(); 
+            },
+            decreaseQuantity: function(plate){
+                plate.quantity--;
+                plate.amount = plate.price * plate.quantity;
+                this.total = 0;
+                for (let i = 0; i < this.cart.length; i++) {
+                    
+                    this.total += this.cart[i].amount;                   
+                }
+                localStorage.total = this.total;
+                this.saveCart();
             },
             removeCart: function(index){
                 this.total -= this.cart[index].amount;
