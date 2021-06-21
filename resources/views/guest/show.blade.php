@@ -24,7 +24,7 @@
                     <div class="plate_quantity flex mb-15 mt-15">
                         <h3 class="mb-15 price">@{{plate.price}} €</h3>
                         <div class="quantity-box flex">
-                            <input class="quantity mr-10 ml-10" type="number" v-model="plate.quantity">
+                            <input class="quantity mr-10 ml-10" type="number" v-model="plate.quantity" min='0'>
                             <button v-on:click="addCart(plate, index)" class="add_btn">Aggiungi <i class="fas fa-cart-plus"></i></button>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                         <div class='cart_plate_right flex'>
                             <button class="quantity_btn mr-5" v-on:click="increaseQuantity(item)">+</button>
                             <span class="mr-5">@{{item.quantity}}</span>
-                            <button class="quantity_btn mr-5" v-on:click="decreaseQuantity(item)">-</button>
+                            <button class="quantity_btn mr-5" v-on:click="decreaseQuantity(item,index)">-</button>
                             <i v-on:click="removeCart(index)" class="fas fa-trash-alt ml-5"></i> 
                         </div>
                     </div>
@@ -136,9 +136,8 @@
                 localStorage.total = this.total;
                 this.saveCart(); 
             },
-            decreaseQuantity: function(plate){
+            decreaseQuantity: function(plate,index){
 
-                console.log(plate);
                 if (plate.quantity > 1){
 
                     plate.quantity--;
@@ -147,11 +146,21 @@
                     for (let i = 0; i < this.cart.length; i++) {
                     
                     this.total += this.cart[i].amount;                   
+                    }
+
+                
+                } else {
+                    this.cart.splice(index, 1);
+                    this.total = 0;
+                    for (let i = 0; i < this.cart.length; i++) {
+                    
+                    this.total += this.cart[i].amount;                   
+                    }
+                    
                 }
 
                 localStorage.total = this.total;
                 this.saveCart();
-                } 
                 
             },
             removeCart: function(index){
