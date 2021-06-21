@@ -1,0 +1,124 @@
+
+.main_container{
+    flex-wrap: wrap;
+
+    h1{
+        text-align: center;
+    }
+
+
+    .empty_btn{
+        cursor:pointer;
+        background-color: white;
+        padding: 8px 25px;
+        font-size: $fontReg;
+        color: $primary;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
+
+        &.pay_btn{
+            margin-left: auto;
+            margin-right: auto;
+            font-size: $fontBig;
+        }
+
+    }
+
+    .checkout_container{
+
+        // media query aa 815 per visualizzazione laptop
+        @media screen and (max-width:815px) {
+            flex-direction: column;
+
+        }
+
+        .cart_resume{
+            flex-basis: calc(50% - 40px);
+            background-color: $secondary;
+            padding: 20px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+            margin: 30px 20px 20px 20px ;
+    
+            
+    
+                & .cart_title{
+                    text-align: center;
+                    color: $primary;
+                    font-size: $fontBig;
+                    text-decoration: underline;
+                    font-size: 30px;
+    
+                }
+    
+                & .cart_plate {
+                    justify-content: space-between;
+                    background-color: white;
+                    border-radius: 20px;
+                    padding: 6px 30px;
+                    align-items: center;
+                    box-shadow:2px 2px 2px rgba(0,0,0, 0.3);
+    
+                    h3 {
+                        display: inline-block;
+                        color: $primary;
+                    }
+    
+                    i.fa-trash-alt {
+                        color: $primary;
+                        cursor: pointer;
+                    }
+                }
+                
+                .cart_total {
+                    background-color:  $primary;
+                    color: white;
+                    padding: 12px 8px;
+                    align-items: center;
+                    text-align: center;
+    
+                       
+                    a{
+                        font-weight: $fontBold;
+                    }
+                }
+        }
+    
+        .order_box{
+            color: white;
+            border-radius: 20px;
+            flex-basis: calc(50% - 40px);
+            padding: 20px;
+            margin: 30px 20px 20px 20px ;
+            background-color: $primary;
+            background-image: url('../storage/images/pattern.png');
+            background-size: cover;
+            
+            
+    
+            .order_form{
+                flex-wrap: wrap;
+
+                h3{
+                    text-align: center;
+                    font-size: $fontBig;
+                }
+
+                div {
+                    flex-basis: 100%;
+        
+                    input{
+                        width: 100%;
+                        padding: 5px 2px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+           
+        }
+    
+    }
+
+  
+    
+}
