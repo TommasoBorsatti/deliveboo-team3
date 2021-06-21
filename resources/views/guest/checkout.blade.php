@@ -17,16 +17,18 @@
                 <h3 class="cart_title">Il tuo carrello <i class="fas fa-cart-plus"></i> </h3>
             </div>
             <div  class="cart_plates_container mb-20">
-                <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
+                {{-- <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
                     <div>
                         <i class="mr-5">@{{item.quantity}}</i><span class="mr-10">&times;</span>
                         <h3>@{{item.name}}</h3>
                     </div>
-                    <i v-on:click="removeCart(index)" class="fas fa-trash-alt"></i>
-                </div>
+                </div> --}}
 
-                <div class="cart_plate">
+                <div class="cart_plate mb-20">
                     <h3>Panino con mortadella</h3>
+                </div>
+                <div class="cart_plate mb-20">
+                    <h3>Panino con frittata</h3>
                 </div>
             </div>
             <div class="cart_total">

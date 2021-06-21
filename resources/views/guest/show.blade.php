@@ -43,13 +43,16 @@
                 </div>
                 <div  class="cart_plates_container mb-20">
                     <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
-                        <div>
+
+                        <div class='part_1'>
                             <i class="mr-5">@{{item.quantity}}</i><span class="mr-10">&times;</span>
                             <h3 class = 'mr-5'>@{{item.name}}</h3>
-                            <button class="quantity_btn" v-on:click="increaseQuantity(item)">+</button>
-                            <button class="quantity_btn" v-on:click="decreaseQuantity(item)">-</button>
                         </div>
-                        <i v-on:click="removeCart(index)" class="fas fa-trash-alt"></i>
+                        <div class='part_2 flex'>
+                            <button class="quantity_btn mr-5" v-on:click="increaseQuantity(item)">+</button>
+                            <button class="quantity_btn mr-5" v-on:click="decreaseQuantity(item)">-</button>
+                            <i v-on:click="removeCart(index)" class="fas fa-trash-alt ml-5"></i> 
+                        </div>
                     </div>
                 </div>
                 <div class="cart_total">
@@ -130,15 +133,24 @@
                 this.saveCart(); 
             },
             decreaseQuantity: function(plate){
-                plate.quantity--;
-                plate.amount = plate.price * plate.quantity;
-                this.total = 0;
-                for (let i = 0; i < this.cart.length; i++) {
+
+                console.log(plate);
+                if (plate.quantity > 1){
+
+                    plate.quantity--;
+                    plate.amount = plate.price * plate.quantity;
+                    this.total = 0;
+                    for (let i = 0; i < this.cart.length; i++) {
                     
                     this.total += this.cart[i].amount;                   
                 }
+
                 localStorage.total = this.total;
                 this.saveCart();
+                } else if (plate.quantity == 1){
+                    this.clearCart(plate.id);
+                }
+                
             },
             removeCart: function(index){
                 this.total -= this.cart[index].amount;
