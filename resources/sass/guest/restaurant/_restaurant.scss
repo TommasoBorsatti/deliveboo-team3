@@ -66,9 +66,8 @@
 
                     & .menu_img{
                         width: 200px;
-                        max-height: 100px;
+                        height: 100px;
                         object-fit: contain;
-
                         margin: auto;
                         display: block;
                     }
@@ -88,7 +87,11 @@
                     //border: 2px solid blue;
                     text-align: center;
                     justify-content: space-around;
-                    align-items: flex-end;
+                    align-items: flex-start;
+
+                    .quantity_box{
+                        align-items: flex-start;
+                    }
 
                     
                    
