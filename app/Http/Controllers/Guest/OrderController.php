@@ -14,29 +14,38 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
-    public function checkout($id)
-    {
-        $gateway = new Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
+    protected $validation = [
+        'name_ui' => 'required|string|max:50',
+        'lastname_ui' => 'required|string|max:50',
+        'email_ui' => 'required', 'string', 'email', 'max:50',
+        'address_ui' => 'required|string|max:125',
+        'phone_ui' => 'required|numeric',
+        'total' => 'required',
+    ];
+
+
+    public function checkout($id, Gateway $gateway)
+    {       
         
         $token = $gateway->ClientToken()->generate();
-
         $restaurant = User::find($id)->first();
 
         return view('guest.checkout', compact('restaurant', 'token'));
     }
 
-    public function checkoutStore(Request $request)
-    {
-        dd($request->all());
-        $data = $request->all();
-        $data['total'] = 15;
-        $data['plates'] = [ 3, 7];
+    public function checkoutStore(Request $request, Gateway $gateway)
+    {   
+        $validation = $this->validation;
 
+        // validation
+        $request->validate($validation);
+
+        $data = $request->all();
+        dd($data);
+        $data['total'] = floatval($request->total);
+        $data['plates'] = $request->plate_id;
+
+        // creazione nuovo ordine
         $newOrder = new Order();
         $newOrder->name_ui = $data['name_ui'];
         $newOrder->lastname_ui = $data['lastname_ui'];
@@ -51,12 +60,6 @@ class OrderController extends Controller
 
         Mail::to($newOrder->email_ui)->send(new SendOrderMail($newOrder));
 
-        $gateway = new Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
 
         $result = $gateway->transaction()->sale([
             'amount' => $data['total'],

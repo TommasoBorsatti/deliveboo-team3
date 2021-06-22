@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Type;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class GuestController extends Controller
     {
 
         $restaurant = User::find($id);
-        return view('guest.show', compact('restaurant'));
+        $types = Type::all();
+        return view('guest.show', compact('restaurant', 'types'));
     }
     
 }

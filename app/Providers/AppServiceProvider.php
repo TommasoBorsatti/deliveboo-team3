@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Braintree\Gateway;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(Gateway::class, function($app){
+            return new Gateway($app['config']['braintree']);
+        });
     }
 }
