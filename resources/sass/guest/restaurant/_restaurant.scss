@@ -74,8 +74,7 @@
                 }
 
                 & .plate_info, & .plate_quantity {
-                    flex-basis: 100%;
-                    
+                    flex-basis: 100%;        
 
                     & .plate_description{
                         font-size: $fontReg;
@@ -116,7 +115,7 @@
                 & .plate_types{
                     flex-basis: 100%;
                     justify-content: space-evenly;
-                    flex-wrap: wrap;
+                    //flex-wrap: wrap;
                     align-items: center;
 
                     & .type_tag{
@@ -129,6 +128,7 @@
                         border-radius: 15px;
                         box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);
                         margin: 4px 3px;
+                        text-align: center;
                     }
                 }
 
@@ -157,7 +157,6 @@
                 font-size: $fontBig;
                 text-decoration: underline;
                 font-size: 30px;
-
             }
 
             & .cart_plate {
@@ -170,7 +169,6 @@
 
                 .cart_plate_left{
                     min-width: 100px;
-               
 
                     span{
                         color: $primary;
@@ -178,9 +176,7 @@
                     }
                 }
 
-                .cart_plate_right{
-                    
-                    
+                .cart_plate_right{           
                     flex-basis: 25%;
                     justify-content: flex-end;
                     align-items: center;
@@ -221,7 +217,6 @@
 
                 .total_info{
                     flex-basis: 100%;
-
                 }
 
                 .total_action{

@@ -36,9 +36,10 @@
                     </div>
                 </div> 
             </div>
+            <!-- Inizio del carrello -->
             <div class="cart_box">
                 <div class="cart_title_box mb-40 mt-20">
-                   <h3 class="cart_title">Il tuo carrello<i class="fas fa-cart-plus"></i> </h3>
+                   <h3 class="cart_title">Il tuo carrello <i class="fas fa-cart-plus"></i> </h3>
                 </div>
                 <div  class="cart_plates_container mb-20">
                     <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
@@ -65,6 +66,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Fine del carrello -->
         </section>
     </div>
 </div>
