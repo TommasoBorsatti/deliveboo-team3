@@ -108,6 +108,13 @@
             var amount = this.total;
             var form = document.querySelector('#pay_form');
             var token = "{{ $token }}"
+            function clearCart(){
+                this.cart = [];
+                this.total = 0;
+                localStorage.total = this.total;
+                const parsed = JSON.stringify(this.cart);
+                localStorage.setItem('cart', parsed);
+            } 
             console.log(token);
             braintree.dropin.create({
             authorization: token,
@@ -120,16 +127,15 @@
                             console.log('Request Payment Method Error', err);
                             return;
                         }
-                        // Add the nonce to the form and submit
-                    document.querySelector('#nonce').value = payload.nonce;
-                    document.querySelector('#total').value = amount;
-                    form.submit();
+                            // Add the nonce to the form and submit
+                        document.querySelector('#nonce').value = payload.nonce;
+                        document.querySelector('#total').value = amount;
+                        clearCart();
+                        form.submit();
+                    });
+                })
             });
-        })
-    });
         },
-        methods:{
-        }
     });
 </script>
 @endsection

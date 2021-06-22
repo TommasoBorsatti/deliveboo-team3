@@ -14,26 +14,20 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
-    public function checkout($id)
-    {
-        $gateway = new Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
+    public function checkout($id, Gateway $gateway)
+    {       
         
         $token = $gateway->ClientToken()->generate();
-
         $restaurant = User::find($id)->first();
 
         return view('guest.checkout', compact('restaurant', 'token'));
     }
 
-    public function checkoutStore(Request $request)
+    public function checkoutStore(Request $request, Gateway $gateway)
     {   
 
         $data = $request->all();
+        dd($data);
         $data['total'] = floatval($request->total);
         $data['plates'] = $request->plate_id;
         $newOrder = new Order();
@@ -50,12 +44,6 @@ class OrderController extends Controller
 
         Mail::to($newOrder->email_ui)->send(new SendOrderMail($newOrder));
 
-        $gateway = new Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
 
         $result = $gateway->transaction()->sale([
             'amount' => $data['total'],
