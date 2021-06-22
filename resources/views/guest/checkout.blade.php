@@ -67,6 +67,7 @@
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
 
                 <input id="total" type="hidden"  name="total">
+                
                 <input v-for="item in cart" class="plate_id" type="hidden" name="plate_id[]" :value="item.id">
             
             
