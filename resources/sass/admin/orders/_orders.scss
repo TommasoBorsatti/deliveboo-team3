@@ -1,0 +1,16 @@
+#order {
+    &.orders_container {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .box_graph {
+        justify-content: space-evenly;
+        
+
+        > .graph_mounths, .graph_years {
+            width: 40%;
+        }
+    }
+
+}

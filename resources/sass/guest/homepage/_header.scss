@@ -40,6 +40,25 @@ header {
          align-items: center;
          height: 100%;
         }
+
+        .nav_link:hover {
+            color: $complementare;
+        }
+
+        .nav_link:after {
+            content: '';
+            display: block;
+            margin: 5px auto;
+            height: 3px;
+            width: 0px;
+            background: transparent;
+            transition: width 0.5s ease, background-color 0.5s ease;
+        }
+           
+        .nav_link:hover:after {
+            width: 40%;
+            background: $complementare;
+        }
     }
 
     //@include center-container-pY($mainContainer, 80px);

@@ -5,24 +5,27 @@
 @endsection
 
 @section('content')
-<div id="order">
-    
-    <div style="display: flex;">
-        <div style="width: 40%;">
+<div id="order" class="orders_container mt-5">
+    {{-- Inizio grafici --}}
+    <div class="box_graph flex">
+        <div class="graph_mounths">
             <h2>Totale ordini per mese</h2>
             <canvas  id="myChart"></canvas>   
         </div>
-        <div style="width: 40%;">
+        <div class="graph_years">
             <h2>Totale ordini per anno</h2>
             <canvas  id="chartYear"></canvas>
         </div>
     </div>
+    {{-- /Fine grafici --}}
+    {{-- Dettagli ordini --}}
     <div v-for="order in orders" >
         <p>@{{ order.id}}</p>
         <span> @{{ order.lastname_ui}} </span>
         <span> @{{ order.name_ui}} </span>
         <span> @{{ order.total}} </span>
     </div>
+    {{-- /Dettagli ordini --}}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -94,14 +97,14 @@
                     datasets: [{
                         label: 'Totale ordini nell\'anno',
                         axis: 'y',
-                        backgroundColor: 'rgb(255, 99, 132)',
+                        backgroundColor: 'rgb(255, 164, 032)',
                         borderColor: 'rgb(255, 99, 132)',
                         data: this.yearOrder,
                     },
                     {
                         label: 'Totale incasso nell\'anno',
                         axis: 'y',
-                        backgroundColor: 'rgb(150, 99, 20)',
+                        backgroundColor: 'rgb(042, 100, 120)',
                         borderColor: 'rgb(255, 99, 132)',
                         data: this.yearTotal,
                     }]
@@ -137,13 +140,13 @@
                 labels: labels,
                 datasets: [{
                     label: 'Totale ordini',
-                    backgroundColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgb(255, 164, 032)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: this.countOrder,
                 },
                 {
                     label: 'Totale incasso',
-                    backgroundColor: 'rgb(150, 99, 20)',
+                    backgroundColor: 'rgb(042, 100, 120)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: this.countTotal,
                 }]
