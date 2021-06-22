@@ -1,7 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.base')
+
+@section('page_title')
+Registrati su CiBoo
+@endsection
 
 @section('content')
-<div class="container">
+<div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -12,7 +16,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome Utente') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -26,7 +30,7 @@
                         </div>  
 
                         <div class="form-group row">
-                            <label for="restaurant" class="col-md-4 col-form-label text-md-right">Restaurant Name</label>
+                            <label for="restaurant" class="col-md-4 col-form-label text-md-right">Nome del Ristorante</label>
 
                             <div class="col-md-6">
                                 <input id="restaurant" type="text" class="form-control @error('restaurant') is-invalid @enderror" name="restaurant" value="{{ old('restaurant') }}" required autocomplete="restaurant" autofocus>
@@ -40,7 +44,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">Restaurant Address</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right">Indirizzo del Ristorante</label>
 
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
@@ -68,7 +72,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo Email') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -96,15 +100,17 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
                         {{-- lista categories --}}
-                        <div class="form-group row">                       
+
+                        <h3 class="text-center mt-3 mb-2">Scegli le categorie del tuo ristorante:</h3>  
+                        <div class="form-group row">  
                             <div class="col-md-6">
                                 @foreach ($categories as $category)
                                     <div class="form-check">
@@ -126,7 +132,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Registrati') }}
                                 </button>
                             </div>
                         </div>

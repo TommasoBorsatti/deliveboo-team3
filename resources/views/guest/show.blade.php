@@ -21,7 +21,7 @@
                         <h2 class="mb-15 card_title">@{{plate.name}}</h2>
                         <img :src= "'http://localhost:8000/storage/'+ plate.plate_img" :alt="plate.name" class="menu_img">
                     </div>
-                    <div class="plate_quantity flex mb-15 mt-15">
+                    <div class="plate_quantity flex mb-5 mt-5">
                         <h3 class="mb-15 price">@{{plate.price}} €</h3>
                         <div class="quantity-box flex">
                             <input class="quantity mr-10 ml-10" type="number" v-model="plate.quantity" min='0'>

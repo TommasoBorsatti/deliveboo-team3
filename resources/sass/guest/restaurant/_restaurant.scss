@@ -42,6 +42,7 @@
                 padding: 10px;
                 flex-wrap: wrap;
                 border-radius: 20px;
+                
 
                 //Media query 768px per layout pagina tablet
                  @media screen and (max-width:1200px) {
@@ -77,7 +78,8 @@
                     flex-basis: 100%;        
 
                     & .plate_description{
-                        font-size: $fontReg;
+                        font-size: $fontSmall;
+                        text-align: center;
                         
                     }
                 }
@@ -115,7 +117,7 @@
                 & .plate_types{
                     flex-basis: 100%;
                     justify-content: space-evenly;
-                    //flex-wrap: wrap;
+                    flex-wrap: wrap;
                     align-items: center;
 
                     & .type_tag{
