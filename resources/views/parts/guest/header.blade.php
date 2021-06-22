@@ -1,7 +1,7 @@
 <header class="">
         
     <div id="navbarSupportedContent">
-        <nav>
+        <nav class="transparent">
             <div class="container flex">
                 <img class="nav_logo" src="{{asset('storage/images/ciBoo.png')}}" alt="logo-deliveboo">
                 <!-- Right Side Of Navbar -->
@@ -18,7 +18,7 @@
                         @endif
                     @else
                         <li class="flex">
-                            <a id="navbarDropdown" class="mr-15" href="{{route('admin.plate.index')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="mr-15 user_link" href="{{route('admin.plate.index')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="flex" aria-labelledby="navbarDropdown">
