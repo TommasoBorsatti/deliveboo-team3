@@ -9,22 +9,39 @@
     {{-- Inizio grafici --}}
     <div class="box_graph flex">
         <div class="graph_mounths">
-            <h2>Totale ordini per mese</h2>
+            <h2 class="mb-2">Totale ordini per mese</h2>
             <canvas  id="myChart"></canvas>   
         </div>
         <div class="graph_years">
-            <h2>Totale ordini per anno</h2>
+            <h2 class="mb-2">Totale ordini per anno</h2>
             <canvas  id="chartYear"></canvas>
         </div>
     </div>
     {{-- /Fine grafici --}}
     {{-- Dettagli ordini --}}
-    <div v-for="order in orders" >
-        <p>@{{ order.id}}</p>
-        <span> @{{ order.lastname_ui}} </span>
-        <span> @{{ order.name_ui}} </span>
-        <span> @{{ order.total}} </span>
-    </div>
+    <section id="tableSection" class="mt-5" v-for="order in orders" >
+
+        <table class="table table-striped table_custom text-center">
+            <thead>
+              <tr>
+                <th class="id_head" scope="col">Id dell'Ordine</th>
+                <th class='custom_head' scope="col">Nome</th>
+                <th class='custom_head' scope="col">Cognome</th>
+                <th class='custom_head' scope="col">Totale Ordine</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">@{{ order.id}}</th>
+                <td>@{{ order.name_ui}}</td>
+                <td>@{{ order.lastname_ui}}</td>
+                <td>@{{ order.total}} &euro;</td>
+              </tr>
+            </tbody>
+          </table>
+
+    </section>
+    
     {{-- /Dettagli ordini --}}
 </div>
 

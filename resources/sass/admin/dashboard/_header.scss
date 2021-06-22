@@ -17,6 +17,7 @@ header {
 
     .nav_logo {
         height: 100%;
+        align-items: center;
     }
 
     .nav_login {
@@ -27,6 +28,11 @@ header {
          text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
          align-items: center;
          height: 100%;
+
+            &:hover{
+                text-decoration: none;
+                color: $white;
+            }
         }
     }
 

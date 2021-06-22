@@ -27,7 +27,6 @@ header {
         & i{
             color: white;
             font-size: $fontMax;
-            vertical-align: middle;
         }
     }
 
@@ -37,7 +36,6 @@ header {
          color: $secondary;  
          font-size: $fontBig; 
          text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
-         align-items: center;
          height: 100%;
         }
 
@@ -45,20 +43,20 @@ header {
             color: $complementare;
         }
 
-        .nav_link:after {
-            content: '';
-            display: block;
-            margin: 5px auto;
-            height: 3px;
-            width: 0px;
-            background: transparent;
-            transition: width 0.5s ease, background-color 0.5s ease;
-        }
+        // .nav_link:after {
+        //     content: '';
+        //     display: block;
+        //     margin: 5px auto;
+        //     height: 3px;  
+        //     width: 0px;
+        //     background: transparent;
+        //     transition: width 0.5s ease, background-color 0.5s ease;
+        // }
            
-        .nav_link:hover:after {
-            width: 40%;
-            background: $complementare;
-        }
+        // .nav_link:hover:after {
+        //     width: 40%;
+        //     background: $complementare;
+        // }
     }
 
     //@include center-container-pY($mainContainer, 80px);

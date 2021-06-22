@@ -7,9 +7,47 @@
     .box_graph {
         justify-content: space-evenly;
         
+        @media screen and (max-width: 1024px){
+            flex-wrap: wrap;
+        }
+        
 
         > .graph_mounths, .graph_years {
             width: 40%;
+            
+            h2{
+                color: $primary;
+            }
+
+            @media screen and (max-width: 1024px){
+                width:80%;                
+            }        
+        }
+
+        .graph_years{
+
+            @media screen and (max-width: 1024px){
+                margin-top: 40px;                
+            }    
+        }
+    }
+
+    #tableSection{
+
+        .table_custom{
+            width: 80%;
+            margin: auto;
+        }
+
+        .id_head{
+            color: $complementare;
+            text-size-adjust: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .custom_head{
+            color: $primary;
+            
         }
     }
 
