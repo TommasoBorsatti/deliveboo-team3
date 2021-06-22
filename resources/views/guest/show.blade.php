@@ -13,7 +13,12 @@
             <h2 class="restaurant_title">Effettua il tuo ordine da</h2>
             <h1 class='restaurant_name'>{{$restaurant->restaurant}}</h1>
         </div>
-
+        <div>
+            <button v-on:click="allPlates()">Tutti</button>
+            @foreach ($types as $type)
+                <button v-on:click="chooseTypes('{{ $type->name }}')">{{ $type->name }}</button>
+            @endforeach
+        </div>
         <section id="plates" class="flex">
             <div class="menu_box flex">
                 <div v-for="(plate, index) in plates" class="plate_card flex">
@@ -96,17 +101,7 @@
             if ( !this.cart.some(cartId => cartId.user_id == this.restaurantId) ){
                 this.clearCart();
             }
-            axios.get('http://localhost:8000/api/restaurant-plates',{
-                params: {
-                    id : {{ $restaurant->id }} 
-                }
-            })
-          .then((result) => {
-            this.plates = result.data;
-            for (let i = 0; i < this.plates.length; i++) {
-                this.plates[i].quantity = 0;               
-            }
-          });
+            this.allPlates();
         },
         methods:{
             addCart: function( plate, index){
@@ -181,6 +176,33 @@
                 const parsed = JSON.stringify(this.cart);
                 localStorage.setItem('cart', parsed); 
             },
+            chooseTypes: function(type_name){
+                axios.get('http://localhost:8000/api/restaurant-plates-types',{
+                params: {
+                    id : {{ $restaurant->id }},
+                    type: type_name
+                }
+                })
+                .then((result) => {
+                    this.plates = result.data;
+                    for (let i = 0; i < this.plates.length; i++) {
+                        this.plates[i].quantity = 0;               
+                    }
+                });
+            },
+            allPlates: function(){
+                axios.get('http://localhost:8000/api/restaurant-plates',{
+                params: {
+                    id : {{ $restaurant->id }} 
+                }
+                })
+                .then((result) => {
+                    this.plates = result.data;
+                    for (let i = 0; i < this.plates.length; i++) {
+                        this.plates[i].quantity = 0;               
+                    }
+                });
+            }
             
         }
     });

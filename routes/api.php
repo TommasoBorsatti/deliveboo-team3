@@ -21,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/restaurants','Api\SearchCatController@getAll');
 Route::get('/restaurants-cat','Api\CategoriesController@getCategories');
 Route::get('/restaurant-plates','Api\PlatesController@getPlates');
+Route::get('/restaurant-plates-types','Api\PlatesController@getPlatesTypes');
 Route::get('/restaurant/orders','Api\OrdersController@getOrders');

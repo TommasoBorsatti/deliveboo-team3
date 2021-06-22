@@ -22,4 +22,24 @@ class PlatesController extends Controller
 
         return response()->json($plates);
     }
+
+    public function getPlatesTypes(Request $request)
+    {
+        $plates = Plate::where('user_id', $request->id)
+        ->where('available', 1)
+        ->get();
+        $platesFind = collect();
+        //Associazione dei Types ai Plates
+        foreach ($plates as $plate) {
+           
+            $plate['types'] = $plate->types;
+            foreach ($plate->types as $type){
+                if ( $type->name == $request->type) {
+                    $platesFind->add($plate);
+                }
+            } 
+        }
+
+        return response()->json($platesFind);
+    }
 }
