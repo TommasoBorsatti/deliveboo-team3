@@ -19,7 +19,7 @@
                         @endif
                     @else
                         <li class="flex">
-                            <a id="navbarDropdown" class="mr-15" href="{{route('admin.plate.index')}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="mr-15" href="{{route('admin.plate.index')}}" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
                             <a id="navbarDropdown" class="mr-15" href="{{route('admin.restaurant.orders', Auth::user()->id)}}" >
