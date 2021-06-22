@@ -41,7 +41,6 @@ class OrderController extends Controller
         $request->validate($validation);
 
         $data = $request->all();
-        dd($data);
         $data['total'] = floatval($request->total);
         $data['plates'] = $request->plate_id;
 

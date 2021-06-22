@@ -19,7 +19,7 @@
     </div>
     {{-- /Fine grafici --}}
     {{-- Dettagli ordini --}}
-    <section id="tableSection" class="mt-5" v-for="order in orders" >
+    <section id="tableSection" class="mt-5"  >
 
         <table class="table table-striped table_custom text-center">
             <thead>
@@ -31,7 +31,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr v-for="order in orders">
                 <th scope="row">@{{ order.id}}</th>
                 <td>@{{ order.name_ui}}</td>
                 <td>@{{ order.lastname_ui}}</td>

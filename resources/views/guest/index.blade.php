@@ -5,17 +5,18 @@
 @endsection
 
 @section('contentGuest')
-<div class='mt-40' id="app">
+<div id="app">
     
-    <div class="main_container">
-        <h1 class='main_title mt-20 mb-25'>La Selezione di CiBoo</h1>
-        <div class="mosaic_container">
-            <div v-for="(category, index) in categories" v-on:click="categoriesSearch(index, category.name)" class="category_card" :class="'cat' + category.name"> 
-                <a class= "ancora" href="#restaurants"></a>   
+    <section id='categories' class="pb-40 pt-20">
+        <div class="main_container">
+            <h1 class='main_title pt-30 mb-25'>La Selezione di CiBoo</h1>
+            <div class="mosaic_container">
+                <div v-for="(category, index) in categories" v-on:click="categoriesSearch(index, category.name)" class="category_card overlay" :class="'cat' + category.name"> 
+                    <a href="#restaurants" class="overlay flex ancora"> @{{category.name}}</a> 
+                </div>
             </div>
         </div>
-
-    </div>
+    </section>
 
     
     <section id='restaurants' v-if= "categoryName != ''">

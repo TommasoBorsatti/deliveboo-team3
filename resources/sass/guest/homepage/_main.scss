@@ -9,101 +9,148 @@ h2{
     font-size: $fontMax;
 }
 
+#categories{
+    background-color: rgba(255, 164, 03, 0.8);
+    //background-image: url('../storage/images/food.png');
+    background-repeat: repeat;
+    
 
-*.main_container{
-    width:95%;
-    margin: auto;
 
-
-    & a.ancora{
-        position: absolute;
-        top:0;
-        bottom:0;
-        right:0;
-        left:0;
-    }
-  
-
-    & .mosaic_container{
+    *.main_container{
+        width:95%;
         margin: auto;
-        display: flex;
-        flex-wrap: wrap;
-        background-color: $layover;
-        border-radius: 20px;
-        padding: 25px;
-        justify-content: center;
         
-        
-        & > .category_card{
-            flex-basis: 50% - 8;
-            height: 250px;
-                      
-            margin: 1px;
-                        
-            &.catPizza{
-                background-image: url('../storage/images/pizza.jpg');
-                background-size: cover;
-                position: relative;
-            }
-            &.catSushi{
-                background-image: url('../storage/images/sushi.jpg');
-                background-size: cover;
-                position: relative;
-            }
-            &.catHamburger{
-                background-image: url('../storage/images/hamburger.jpg');
-                background-size: cover;
-                position: relative;
-            }
-            &.catGelato{
-                background-image: url('../storage/images/gelato.jpg');
-                background-size: cover;
-                background-position: center;
-                position: relative;
-            }
-            &.catCinese{
-                background-image: url('../storage/images/cinese.jpg');
-                background-size: cover;
-                position: relative;
-            }
-            &.catMessicano{
-                background-image: url('../storage/images/messicano.jpg');
-                background-size: cover;
-                position: relative;
-            }
-
-            &:hover{
-            cursor:pointer;
-            filter: grayscale(25%)
-            }
+    
+            & a.ancora{
+            position: absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            left:0;
+        }
+      
+    
+        & .mosaic_container{
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 25px;
+            justify-content: center;
             
-        }
-
-        @media only screen and (max-width: 900px) {
+            
             & > .category_card{
-                flex-basis: 80%;
+                flex-basis: 50% - 8;
+                height: 250px;
+                
+    
+                .overlay{
+                    opacity: 0;
+                    width:100%;
+                    height:100%;
+                    position: absolute;
+                    left: 0;
+                    bottom:0;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0.6);
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 900;
+                    font-size: 50px;
+                    color: white;
+    
+                    &:hover{
+                        opacity: 1;
+                    }
+    
+                }
+    
+            
+                            
+                &.catPizza{
+                    background-image: url('../storage/images/pizza.jpg');
+                    background-size: cover;
+                    position:relative;
+    
+                    & .overlay{
+                        color: $complementare;
+                    }
+      
+                }
+    
+                &.catSushi{
+                    background-image: url('../storage/images/sushi.jpg');
+                    background-size: cover;
+                    position: relative;
+                }
+                &.catHamburger{
+                    background-image: url('../storage/images/hamburger.jpg');
+                    background-size: cover;
+                    position: relative;
+                }
+                &.catGelato{
+                    background-image: url('../storage/images/gelato.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    position: relative;
+    
+                    & .overlay{
+                        color: $third;
+                    }
+                }
+                &.catCinese{
+                    background-image: url('../storage/images/cinese.jpg');
+                    background-size: cover;
+                    position: relative;
+    
+                        & .overlay{
+                            color: $complementare;
+                        }
+                }
+                &.catMessicano{
+                    background-image: url('../storage/images/messicano.jpg');
+                    background-size: cover;
+                    position: relative;
+                }
+    
+                
             }
+    
+            @media only screen and (max-width: 900px) {
+                & > .category_card{
+                    flex-basis: 80%;
+                }
+            }
+    
+    
         }
-
-
+    
     }
-
+    
 }
+
 
 section#restaurants{
     background-color: $primary;
+    background-image: url('../storage/images/food.png');
     padding: 50px 0;
-    margin: 50px 0;
+    
 
     & .main-container{
         width: 95%;
         margin: auto;
 
+        h2{
+            color: $complementare;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+        }
+        
+
         & .restaurant-container{
             width:100%;
             margin: auto;
             flex-wrap: wrap;
-            
+
+        
     
             & .restaurant-card{
                 flex-basis: calc(50% - 20px);
@@ -135,7 +182,7 @@ section#restaurants{
                         font-size: $fontReg;
                         color: $primary;
                         padding: 8px 10px;
-                        background-color: rgba(42, 100, 120, 0.2);
+                        background-color: $complementare;
                         border: 2px solid $primary;
                         display: inline-block;
                         border-radius: 15px;
