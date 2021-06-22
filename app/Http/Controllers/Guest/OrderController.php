@@ -31,12 +31,11 @@ class OrderController extends Controller
     }
 
     public function checkoutStore(Request $request)
-    {
-        dd($request->all());
-        $data = $request->all();
-        $data['total'] = 15;
-        $data['plates'] = [ 3, 7];
+    {   
 
+        $data = $request->all();
+        $data['total'] = floatval($request->total);
+        $data['plates'] = $request->plate_id;
         $newOrder = new Order();
         $newOrder->name_ui = $data['name_ui'];
         $newOrder->lastname_ui = $data['lastname_ui'];

@@ -10,26 +10,22 @@
 
     <h1 class="mt-20">Checkout</h1>
 
-    <div class="checkout_container flex">
+    <div id="checkout_vue" class="checkout_container flex">
         <div class="cart_resume">
         
             <div class="cart_title_box mb-40 mt-20">
                 <h3 class="cart_title">Il tuo carrello <i class="fas fa-cart-plus"></i> </h3>
             </div>
             <div  class="cart_plates_container mb-20">
-                {{-- <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
+                <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">
                     <div>
                         <i class="mr-5">@{{item.quantity}}</i><span class="mr-10">&times;</span>
                         <h3>@{{item.name}}</h3>
-                    </div>
-                </div> --}}
 
-                <div class="cart_plate mb-20">
-                    <h3>Panino con mortadella</h3>
+                    </div>
                 </div>
-                <div class="cart_plate mb-20">
-                    <h3>Panino con frittata</h3>
-                </div>
+
+                
             </div>
             <div class="cart_total">
                 <p class="mb-10"><strong>Totale:</strong> <span>@{{ total }}</span> &euro;</p>            
@@ -66,15 +62,12 @@
                     <input  type="tel" id="phone_ui" name="phone_ui" placeholder="Inserisci il tuo numero di telefono">  
                 </div>
             
-                
-                {{-- submit form guest --}}
-                {{-- <div class="mt-3">
-                    <button type="submit" class="btn btn-primary">paga</button>
-                </div> --}}
-            
                 {{-- submit braintree --}}
                 <div id="dropin-container"></div>
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
+
+                <input id="total" type="hidden"  name="total">
+                <input v-for="item in cart" class="plate_id" type="hidden" name="plate_id[]" :value="item.id">
             
             
                 <button type="submit" class="empty_btn pay_btn mt-20 mb-30" > Effettua l'ordine </button>
@@ -92,26 +85,51 @@
 </div>  
 
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script>
-    var form = document.querySelector('#pay_form');
-    var token = "{{ $token }}"
+    new Vue({
+        el: '#checkout_vue',
+        data: {
+            cart: [],
+            total: 0,
+        },
+        mounted:function(){
+            if (localStorage.getItem('cart')) {
+                try {
 
-    braintree.dropin.create({
-    authorization: token,
-    selector: '#dropin-container'
-    }, function (err, instance) {
-    form.addEventListener('submit',function (event) {
-            event.preventDefault();
-            instance.requestPaymentMethod(function (err, payload) {
-                if (err) {
-                    console.log('Request Payment Method Error', err);
-                    return;
+                    this.cart = JSON.parse(localStorage.getItem('cart'));
+                } catch(e) {
+                    localStorage.removeItem('cart');
                 }
-                // Add the nonce to the form and submit
-                document.querySelector('#nonce').value = payload.nonce;
-                form.submit();
+            }
+            for (let i = 0; i < this.cart.length; i++) {
+                this.total += this.cart[i].amount;           
+            }
+            var amount = this.total;
+            var form = document.querySelector('#pay_form');
+            var token = "{{ $token }}"
+            console.log(token);
+            braintree.dropin.create({
+            authorization: token,
+            selector: '#dropin-container'
+            }, function (err, instance) {
+            form.addEventListener('submit',function (event) {
+                    event.preventDefault();
+                    instance.requestPaymentMethod(function (err, payload) {
+                        if (err) {
+                            console.log('Request Payment Method Error', err);
+                            return;
+                        }
+                        // Add the nonce to the form and submit
+                    document.querySelector('#nonce').value = payload.nonce;
+                    document.querySelector('#total').value = amount;
+                    form.submit();
             });
         })
     });
-</script>  
+        },
+        methods:{
+        }
+    });
+</script>
 @endsection
