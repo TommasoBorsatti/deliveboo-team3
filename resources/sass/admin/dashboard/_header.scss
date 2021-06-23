@@ -9,6 +9,7 @@ header {
         
 
         & > div.container {
+            position: relative;
             height: 100%;
             justify-content: space-between;
             align-items: flex-end;
@@ -35,7 +36,40 @@ header {
             }
         }
     }
-
+        .hamburger__menu{
+            display: none;
+            font-size: 30px;
+            color: white;
+            &:hover{
+                color: $complementare;
+                cursor: pointer;
+            }
+        }
+        @media screen and (max-width:900px){
+            .hamburger__menu{
+                display: block;
+                align-self: center;
+            }
+            .nav_login{
+                display: none;
+            }
+            .nav_login.dropdown__menu{
+                display: flex;
+                position: absolute;
+                left: calc(100% - 100px);
+                & > li{
+                    flex-direction: column;
+                    position: absolute;
+                    background: $primary;
+                    padding: 10px;
+                    border-radius: 5px;
+                    a{
+                        font-size: $fontBig;
+                        margin: 5px 0;
+                    }
+                }
+            }
+        } 
     //@include center-container-pY($mainContainer, 80px);
 
 

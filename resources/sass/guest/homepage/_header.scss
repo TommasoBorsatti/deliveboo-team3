@@ -25,10 +25,45 @@ header {
         height: 120px;
 
         .container{
-            width:95%;
+            width:90%;
 
             .nav_logo{
                 height:100%;
+            }
+        }
+        .hamburger__menu{
+            display: none;
+            font-size: 30px;
+            color: white;
+            &:hover{
+                color: $complementare;
+                cursor: pointer;
+            }
+        }
+        @media screen and (max-width:900px){
+            .hamburger__menu{
+                display: block;
+                align-self: center;
+            }
+            .nav_login{
+                display: none;
+            }
+            .nav_login.dropdown__menu{
+                display: flex;
+                position: absolute;
+                left: calc(100% - 100px);
+                & > li{
+                    flex-direction: column;
+                    position: absolute;
+                    background: rgba(33,105,124,0.4);
+                    padding: 10px;
+                    border-radius: 5px;
+                    bottom: -120px;
+                    a{
+                        font-size: $fontBig;
+                        margin: 5px 0;
+                    }
+                }
             }
         }
 

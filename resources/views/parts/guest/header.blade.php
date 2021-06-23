@@ -1,11 +1,12 @@
 <header class="">
         
     <div id="navbarSupportedContent">
-        <nav class="transparent">
+        <nav class="transparent" id="header_vue">
             <div class="container flex">
                 <img class="nav_logo" src="{{asset('storage/images/ciBoo.png')}}" alt="logo-deliveboo">
                 <!-- Right Side Of Navbar -->
-                <ul class="nav_login flex">
+                <i class="fas fa-hamburger hamburger__menu" v-on:click="show = !show"></i>
+                <ul class="nav_login flex" :class=" show ? 'dropdown__menu' : ''">
                     <!-- Authentication Links -->
                     @guest
                         <li class="mr-15">
@@ -48,3 +49,12 @@
     </div>
         
 </header>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    new Vue({
+    el: '#header_vue',
+    data: {
+        show: false
+    }
+}); 
+</script>
