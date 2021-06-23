@@ -17,8 +17,9 @@
             </div>
         </div>
     </section>
-
-    
+    <button v-on:click="scrollTop" class="back__top empty_btn" :class="topPageVisible ? 'back__top--active' : ''">
+        Torna su
+    </button>
     <section id='restaurants' v-if= "categoryName != ''">
         <div class="main-container">
             <h2>Ecco i risultati della tua ricerca per: @{{categoryName}}</h2>

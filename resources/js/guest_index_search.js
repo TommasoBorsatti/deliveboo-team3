@@ -1,6 +1,7 @@
 new Vue({
         el: '#app',
         data: {
+            topPageVisible: false,
             category: '',
             categoryName: '' ,
             restaurants: [],
@@ -16,7 +17,7 @@ new Vue({
         },
 
         mounted:function(){
-          
+          window.addEventListener('scroll', this.scrollListener);
           axios.get('http://localhost:8000/api/restaurants-cat')
           .then((result) => {
             this.categories = result.data;
@@ -36,6 +37,20 @@ new Vue({
               }).then((result)=>{
                 this.restaurants = result.data;
             });
+          },
+          scrollListener: function() {
+            if ( window.scrollY > 150 ){
+                this.topPageVisible = true;
+                
+            } else {
+                this.topPageVisible = false; 
+            }
+        },
+        scrollTop: function(){
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
         }
         }
     });
