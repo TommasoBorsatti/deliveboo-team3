@@ -13,11 +13,11 @@
             <h2 class="restaurant_title">Effettua il tuo ordine da</h2>
             <h1 class='restaurant_name'>{{$restaurant->restaurant}}</h1>
         </div>
-        <div class='type_selection pt-5 pb-5'>
-            <h4>Filtri avanzati:</h4>
-            <button class= 'reverse_btn' v-on:click="allPlates()">Tutti</button>
+        <div class='type_selection pt-5 pb-5 mb-10'>
+            <h4 class="mb-10">Filtri avanzati:</h4>
+            <button class= 'reverse_btn mb-5 mt-5 mr-10 ml-10' v-on:click="allPlates()">Tutti</button>
             @foreach ($types as $type)
-                <button class= 'reverse_btn' v-on:click="chooseTypes('{{ $type->name }}')">{{ $type->name }}</button>
+                <button class= 'reverse_btn mb-5 mt-5 mr-10 ml-10' v-on:click="chooseTypes('{{ $type->name }}')">{{ $type->name }}</button>
             @endforeach
         </div>
         <section id="plates" class="flex">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="cart_total flex">
                     <div class="total_info mb-10">
-                        <p><strong>Totale:</strong><span>@{{ total }}</span> &euro;</p>
+                        <p><strong>Totale: </strong><span> @{{ total }}</span> &euro;</p>
                     </div>
                     <div class="total_action">
                         <a href='{{route('restaurant.checkout', $restaurant->id)}}' class="empty_btn mr-5" v-if= 'cart.length > 0'>Vai al CheckOut</a>

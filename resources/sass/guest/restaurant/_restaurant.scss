@@ -11,8 +11,17 @@
 
     h4{
         color:$primary;
+        font-size: 20px;
     }
-
+    .type_selection{
+        text-align: center;
+        .reverse_btn{
+            padding: 10px 10px;
+            &:hover, &:focus{
+                color: $primary;
+            }
+        }
+    }
     .reverse_btn{
         cursor:pointer;
         background-color: $complementare;
@@ -22,7 +31,6 @@
         border-radius: 20px;
         border: none;
         box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
-
     }
 
     section#plates{
@@ -142,7 +150,6 @@
                         text-shadow: 2px 2px 2px rgba(0,0,0, 0.3);
                         padding: 8px 10px;
                         background-color: $complementare;
-                        border: 2px solid $primary;
                         display: inline-block;
                         border-radius: 15px;
                         box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);

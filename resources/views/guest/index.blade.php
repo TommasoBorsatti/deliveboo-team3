@@ -18,7 +18,7 @@
         </div>
     </section>
     <button v-on:click="scrollTop" class="back__top empty_btn" :class="topPageVisible ? 'back__top--active' : ''">
-        Torna su
+        <i class="fas fa-angle-up"></i>
     </button>
     <section id='restaurants' v-if= "categoryName != ''">
         <div class="main-container">
