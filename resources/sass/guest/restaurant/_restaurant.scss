@@ -9,6 +9,22 @@
        color: $primary;
     }
 
+    h4{
+        color:$primary;
+    }
+
+    .reverse_btn{
+        cursor:pointer;
+        background-color: $complementare;
+        padding: 1px 10px;
+        font-size: $fontReg;
+        color: white;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
+
+    }
+
     section#plates{
         //Media query 815px per layout pagina tablet
         @media screen and (max-width:815px) {
@@ -122,9 +138,10 @@
 
                     & .type_tag{
                         font-size: $fontSmall;
-                        color: $primary;
+                        color: white;
+                        text-shadow: 2px 2px 2px rgba(0,0,0, 0.3);
                         padding: 8px 10px;
-                        background-color: rgba(0, 108, 144, 0.2);
+                        background-color: $complementare;
                         border: 2px solid $primary;
                         display: inline-block;
                         border-radius: 15px;
@@ -185,7 +202,7 @@
                 
                 }
 
-                .quantity_btn{
+                .reverse_btn.quantity_btn{
                     cursor:pointer;
                     background-color: $primary;
                     padding: 1px 10px;
