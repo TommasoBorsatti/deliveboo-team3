@@ -1,18 +1,20 @@
-<h1>Nuovo ordine</h1>
+<h1>Nome del ristorante ha accettato il tuo ordine!</h1>
+
 <div>
-    <h2>Caro {{ $order->name_ui }} {{$order->lastname_ui}} </h2>
+    <h2>Ottima scelta, {{ $order->name_ui }}</h2>
     <div>
-        <h4>L'ordine con id: {{$order->id}}, che include:</h4>
+        <h4>Dati riepilogo ordine:</h4>
         <ul>
-            @foreach ($order->plates as $plate)
-                <li>
-                    {{$plate->name }} prezzo: {{$plate->price }}€
-                </li>
-            @endforeach
+            <li>{{ $order->name_ui }}</li>
+            <li>{{ $order->lastname_ui }}</li>
+            <li>{{ $order->email_ui }}</li>
+            <li>{{ $order->address_ui }}</li>
+            <li>{{ $order->phone_ui }}</li>
         </ul>
-        <h5>Il totale è: {{ $order->total }}€</h5>
-        <h3>è avvenuto con {{ $order->status == 'success' ? 'successo' : 'insuccesso'}}.</h3>
+        <h4>L'id del tuo ordine è: {{$order->id}}</h4>
+
+        <h5>Totale: {{ $order->total }}€</h5>
     </div>
+	<p>Grazie per aver scelto <a href="{{route('search')}}">CiBoo</a></p>
 	
-	<a href="{{route('search')}}">CiBoo</a>
 </div>
