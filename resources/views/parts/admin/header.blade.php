@@ -15,7 +15,7 @@
                         </li>
                         @if (Route::has('register'))
                             <li class="flex">
-                                <a class="nav_link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav_link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                             </li>
                         @endif
                     @else

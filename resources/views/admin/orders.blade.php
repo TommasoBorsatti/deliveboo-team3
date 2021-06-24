@@ -25,6 +25,7 @@
             <thead>
               <tr>
                 <th class="id_head" scope="col">Id dell'Ordine</th>
+                <th class='custom_head' scope="col">Data Ordine</th>
                 <th class='custom_head' scope="col">Nome</th>
                 <th class='custom_head' scope="col">Cognome</th>
                 <th class='custom_head' scope="col">Totale Ordine</th>
@@ -33,6 +34,7 @@
             <tbody>
               <tr v-for="order in orders">
                 <th scope="row">@{{ order.id}}</th>
+                <td>@{{ order.date}}</td>
                 <td>@{{ order.name_ui}}</td>
                 <td>@{{ order.lastname_ui}}</td>
                 <td>@{{ order.total}} &euro;</td>
@@ -67,7 +69,19 @@
             .then((result) => {
                 for (let i = 0; i < result.data.length; i++) {
                     if (!this.orders.some(orderId => orderId.id === result.data[i].id)) {
+                        
+                        var data = new Date(result.data[i].created_at);
+                        var hh, mM, gg, mm, aaaa;
+                        gg = data.getDate() + "/";
+                        mm = data.getMonth() + 1 + "/";
+                        hh = data.getHours() + ":";
+                        mM = data.getMinutes();
+                        aaaa = data.getFullYear() + " - ";
+                        result.data[i].date= ( gg + mm + aaaa + hh + mM  );
+
                         this.orders.push(result.data[i]);
+                        
+
                     }                   
                 }
                 for (let j = 0; j < 12; j++) {

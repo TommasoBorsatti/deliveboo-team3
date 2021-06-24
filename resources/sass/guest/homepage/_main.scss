@@ -24,6 +24,7 @@ h2{
 }
 .back__top.back__top--active{
     display: block;
+    z-index: 20;
 }
 #categories{
     background-color: rgba(255, 164, 03, 0.8);
@@ -131,9 +132,12 @@ h2{
                 
             }
     
-            @media only screen and (max-width: 900px) {
+            @media only screen and (max-width: 767px) {
+
+                padding-left: 0;
+                padding-right: 0;
                 & > .category_card{
-                    flex-basis: 80%;
+                    flex-basis: 100%;
                 }
             }
     
@@ -176,6 +180,11 @@ section#restaurants{
                 box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
                 flex-wrap: wrap;
                 justify-content: space-between;
+
+                @media only screen and (max-width: 767px) {
+
+                        flex-basis: 100%;
+                    }
               
 
                 & .restaurant_card_textbox{

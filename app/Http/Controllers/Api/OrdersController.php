@@ -16,7 +16,7 @@ class OrdersController extends Controller
         $orders = Order::all();
         
         $ordersFind = collect();
-        //Associazione dei Types ai Plates
+        //Associazione degli Orders ai Plates
         foreach ($orders as $order) {
             $order['plates'] = $order->plates;
             foreach ($order['plates'] as $plate) {

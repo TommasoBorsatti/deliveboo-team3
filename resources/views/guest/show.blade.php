@@ -52,7 +52,7 @@
 
                         <div class='cart_plate_left'>
                             <h3 class = 'mr-5'>@{{item.name}}</h3>
-                            <span>@{{item.amount}} &euro;</span>
+                            <span>@{{item.amount}}&nbsp;&euro;</span>
                         </div>
                         <div class='cart_plate_right flex'>
                             <button class="reverse_btn quantity_btn mr-5" v-on:click="increaseQuantity(item)">+</button>

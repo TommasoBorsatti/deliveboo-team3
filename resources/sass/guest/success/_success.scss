@@ -1,0 +1,17 @@
+.success_title{
+    font-size: 80px;
+    text-align: center;
+}
+
+.link_box{
+    justify-content: center;
+}
+
+.link_success{
+    font-size: $fontBig;
+    color: $primary;
+
+    &:hover{
+        color:$complementare;
+    }
+}
