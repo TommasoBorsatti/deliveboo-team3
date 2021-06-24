@@ -28,7 +28,7 @@ class OrderController extends Controller
     {       
         
         $token = $gateway->ClientToken()->generate();
-        $restaurant = User::find($id)->first();
+        $restaurant = User::find($id);
 
         return view('guest.checkout', compact('restaurant', 'token'));
     }
@@ -43,6 +43,8 @@ class OrderController extends Controller
         $data = $request->all();
         $data['total'] = floatval($request->total);
         $data['plates'] = $request->plate_id;
+        $plate = Plate::find($request->plate_id[0]);
+        $user = User::where('id', $plate->user_id)->first();
 
         // creazione nuovo ordine
         $newOrder = new Order();
@@ -57,7 +59,7 @@ class OrderController extends Controller
         
         $newOrder->plates()->attach($data['plates']);
 
-        Mail::to($newOrder->email_ui)->send(new SendOrderMail($newOrder));
+        Mail::to($newOrder->email_ui)->send(new SendOrderMail($newOrder, $user));
 
 
         $result = $gateway->transaction()->sale([

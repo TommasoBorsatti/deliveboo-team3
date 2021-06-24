@@ -1,4 +1,5 @@
-<h1>Nome del ristorante ha accettato il tuo ordine!</h1>
+
+<h1>{{$user->restaurant}} ha accettato il tuo ordine!</h1>
 
 <div>
     <h2>Ottima scelta, {{ $order->name_ui }}</h2>

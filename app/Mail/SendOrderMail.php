@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Order;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -12,15 +13,19 @@ class SendOrderMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $order;
+    public $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Order $order)
+    public function __construct(Order $order, User $user)
     {
         
-        return $this->order = $order;
+        $this->order = $order;
+        $this->user = $user;
+
+        return compact('order', 'user');
     }
 
     /**
