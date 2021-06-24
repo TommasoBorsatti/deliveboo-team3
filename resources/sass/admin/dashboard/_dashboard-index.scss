@@ -17,9 +17,7 @@
         min-width: 100%;
         max-width: 100%; 
 
-    }
-
-    
+    }    
 
     img{
         height:250px;
@@ -48,8 +46,7 @@ h1.dash_title{
     font-size: $fontSmall;
     color: $primary;
     padding: 8px 10px;
-    background-color: rgba(0, 108, 144, 0.2);
-    border: 2px solid $primary;
+    background-color: $complementare;
     display: inline-block;
     border-radius: 15px;
     box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);

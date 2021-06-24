@@ -1,0 +1,78 @@
+footer {
+    font-size: 15px;
+    width: 100%;
+    padding-top: 30px;
+    background-color: $complementare;
+    background-image: url('../storage/images/green-gobbler.png');
+    
+    .container_footer {
+        width: 95%;
+        margin: 0 auto;
+        justify-content: space-evenly;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            text-align: center;
+
+            .social_icons {
+                justify-content: center;
+
+                > li {
+                   margin: 0 8px;
+                } 
+            }
+        }
+
+        .footer_section {
+
+            .link_help {
+               li a {
+                   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                   color: white;
+    
+                    &:hover {
+                        text-decoration: none;
+                        color: $primary;
+                    }
+                }
+            }
+
+            p {
+                text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                color: white;
+            }
+        }
+
+        h5 {
+            color: $primary;
+            font-weight: bold;
+            font-size: $fontBig;
+        }
+
+        .contact_list {
+            color: white;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .social_icons {
+            margin: 4px 0;
+            font-size: $fontBig;
+    
+            > li {
+                text-align: center;
+                margin-right: 15px;
+    
+                > a {
+                    color: $primary;
+                }
+    
+                > a:hover {
+                    color: white;
+                }
+            }
+            
+        }
+
+    }   
+
+}

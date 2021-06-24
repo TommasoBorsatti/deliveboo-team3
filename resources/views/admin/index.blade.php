@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container" id="root">
+    <div class="container mb-5" id="root">
         <h1 class="mb-3 mt-20 dash_title">Dashboard di: {{ $user->restaurant }}</h1>
         {{-- Messaggio di alert cancellazione da rivedere --}}
         @if (session('message'))
@@ -35,9 +35,6 @@
                 </div>
                 <div class="card-footer">
                     <a href="{{route('admin.plate.edit', $plate->id )}}"><button type="button" class="btn btn_custom "><i class="fas fa-pencil-alt"></i></button></a>
-
-
-                    
                     
                      <div class="d-inline"> 
                         
@@ -45,8 +42,7 @@
                             @csrf
                             @method('DELETE')
                             
-                            <button type="submit" class="btn btn_delete"><i class="far fa-trash-alt"></i></button>
-                            
+                            <button type="submit" class="btn btn_delete"><i class="far fa-trash-alt"></i></button>      
                         </form>
                         
                         {{-- <button v-on:click="show = false"  class="btn btn_delete">no</button> --}}
@@ -56,9 +52,6 @@
             </div>             
             @endforeach           
         </div>
-
-        
-
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="{{ asset('js/admin_index.js')}}"></script>    
