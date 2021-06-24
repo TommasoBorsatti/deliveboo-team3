@@ -24,8 +24,7 @@
         <table class="table table-striped table_custom text-center">
             <thead>
               <tr>
-                <th class="id_head" scope="col">Id dell'Ordine</th>
-                <th class='custom_head' scope="col">Data Ordine</th>
+                <th class='id_head' scope="col">Data Ordine</th>
                 <th class='custom_head' scope="col">Nome</th>
                 <th class='custom_head' scope="col">Cognome</th>
                 <th class='custom_head' scope="col">Totale Ordine</th>
