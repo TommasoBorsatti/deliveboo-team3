@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container mb-5" id="root">
-        <h1 class="mb-3 mt-20 dash_title">Dashboard di: {{ $user->restaurant }}</h1>
+        <h1 class="mb-3 mt-5 dash_title">Dashboard di: {{ $user->restaurant }}</h1>
         {{-- Messaggio di alert cancellazione da rivedere --}}
         @if (session('message'))
             <div class="alert alert-success">
@@ -22,7 +22,7 @@
         
         <div class="card-deck">
             @foreach ($plates as $plate)
-            <div class="card card_custom">
+            <div class="card card_custom mb-5">
                 <img src="{{asset('storage/' . $plate->plate_img)}}" class="card-img-top" alt="{{$plate->name}}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $plate->name }}</h5>

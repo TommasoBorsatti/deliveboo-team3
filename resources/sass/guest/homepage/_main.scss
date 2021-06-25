@@ -1,7 +1,8 @@
 
 h1{
     color:$primary;
-    font-size: $fontTitle;
+    font-size: $fontMainTitle;
+    text-shadow: 2px 2px 2px rgba(42, 100, 120, 0.6);
 }
 
 h2{
@@ -27,11 +28,16 @@ h2{
     z-index: 20;
 }
 #categories{
-    background-color: rgba(255, 164, 03, 0.8);
-    //background-image: url('../storage/images/food.png');
-    background-repeat: repeat;
     
+    position: relative;
+    background-color: $complementare;
 
+    background: rgb(42,100,120);
+    background: linear-gradient(0deg, rgba(42,100,120,1) 4%, rgba(255,164,32,1) 38%, rgba(255,164,32,1) 71%, rgba(253, 209, 13, 0.993) 93%);
+    //rgba(255,222,33,1) 93%
+ 
+    
+    
 
     *.main_container{
         width:95%;
@@ -150,6 +156,8 @@ h2{
 section#restaurants{
     background-color: $primary;
     background-image: url('../storage/images/food.png');
+    background-repeat: repeat;
+    background-size: 280px;
     padding: 50px 0;
     
 
@@ -180,6 +188,15 @@ section#restaurants{
                 box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
                 flex-wrap: wrap;
                 justify-content: space-between;
+                transition: all 0.2s;
+                
+                &:hover{
+                    transform: scale(1.1);  
+                    z-index: 20; 
+                    box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+                    
+                    
+                 }
 
                 @media only screen and (max-width: 767px) {
 
@@ -202,14 +219,14 @@ section#restaurants{
                     }
 
                     & h5.category_tag{
-                        font-size: $fontReg;
+                        font-size: 14px;
                         color: $primary;
                         padding: 8px 10px;
                         background-color: $complementare;
                         border: 2px solid $primary;
                         display: inline-block;
                         border-radius: 15px;
-                        box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);
+                        box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
 
                     }
                 }
@@ -234,14 +251,11 @@ section#restaurants{
                 }
 
               
-                & button{
-                    padding: 8px 15px;
+                & span{
                     border-radius: 10px;
-                    background-color: $primary;
-                    color: $secondary;
+                    color: $primary;
+                    font-weight: $fontBold;
                     font-size: $fontReg;
-                    border: none;
-                    box-shadow: 2px 2px 2px rgba(0,0,0, 0.4); 
 
                 }
 
@@ -253,6 +267,7 @@ section#restaurants{
                     right:0;
                     left:0;
 
+                   
                 }
             }
         }

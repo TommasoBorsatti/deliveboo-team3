@@ -20,7 +20,7 @@
             }
 
             @media screen and (max-width: 1024px){
-                width:80%;                
+                width:85%;                
             }        
         }
 
@@ -33,6 +33,8 @@
     }
 
     #tableSection{
+        height: 350px;
+        overflow: auto;
 
         .table_custom{
             width: 70%;

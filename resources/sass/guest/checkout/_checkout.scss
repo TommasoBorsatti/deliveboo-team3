@@ -21,6 +21,12 @@
             margin-left: auto;
             margin-right: auto;
             font-size: $fontBig;
+            font-weight: $fontBold;
+
+            &:hover{
+                color: $complementare;
+                
+            }
         }
 
     }

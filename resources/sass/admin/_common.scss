@@ -9,8 +9,14 @@ html {
     scroll-behavior: smooth;
   }
 
-.debug * {
+
+    .debug * {
     border: 1px blue solid;
+}
+
+main{
+    //flex-basis: 100%;
+    min-height: calc(100vh - 332px);
 }
 
 ul {
@@ -19,6 +25,8 @@ ul {
 
 body {
     font-family: 'Martel Sans', sans-serif;
+    //display: flex;
+    //flex-direction: column;
 }
 
 .container {
@@ -32,4 +40,18 @@ a {
 
 .flex {
     display: flex;
+}
+
+.blue_text{
+    color: $primary;
+}
+
+.btn_custom{
+    background-color: $primary;
+    color: white;
+
+    &:hover{
+        color: white;  
+        background-color: $complementare;
+    }
 }

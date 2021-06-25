@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <h1 class="mb-5">Aggiungi un nuovo piatto:</h1>
+<div class="container pt-5 pb-5 ">
+    <h1 class="mb-5 blue_text">Aggiungi un nuovo piatto:</h1>
     <form class="mt-3" action="{{route('admin.plate.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -45,7 +45,7 @@
             @endforeach
         </div>
         <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Aggiungi piatto</button>
+            <button type="submit" class="btn btn_custom">Aggiungi piatto</button>
         </div>
     </form>
 </div>

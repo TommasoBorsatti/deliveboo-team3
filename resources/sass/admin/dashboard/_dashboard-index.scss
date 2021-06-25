@@ -3,6 +3,7 @@
     min-width: calc((100% / 3) - 30px);
     max-width: calc((100% / 3) - 30px );  
 
+
     //mediaquery per visualizzazione card a laptop
     @media screen and (max-width: 1024px) {
         
@@ -35,21 +36,31 @@ h1.dash_title{
 .btn_delete{
     background-color: $secondary;
     color: $primary;
+
+    &:hover{
+        color: white;
+        background-color: $accent_2;
+    }
 }
 
 .btn_custom{
     background-color: $primary;
     color: white;
+
+    &:hover{
+        color: white;  
+        background-color: $complementare;
+    }
 }
 
 .type_tag{
     font-size: $fontSmall;
-    color: $primary;
+    color: white;
     padding: 8px 10px;
     background-color: $complementare;
     display: inline-block;
     border-radius: 15px;
-    box-shadow: 4px 4px 4px rgba(0,0,0, 0.4);
+    box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);
     margin: 4px 3px;
 }
 

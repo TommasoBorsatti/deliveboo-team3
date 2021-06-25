@@ -6,8 +6,8 @@
 
 @section('content')
 
-<div class="container">
-    <h1 class="mb-5">Modifica: {{ $plate->name }}</h1>
+<div class="container pt-5 pb-5">
+    <h1 class="mb-5 blue_text   ">Modifica: {{ $plate->name }}</h1>
     <form class="mt-3" action="{{route('admin.plate.update', $plate->id ) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -47,7 +47,7 @@
             @endforeach
         </div>
         <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Modifica piatto</button>
+            <button type="submit" class="btn btn_custom">Modifica piatto</button>
         </div>
     </form>
 </div>

@@ -20,7 +20,7 @@
                 <button class= 'reverse_btn mb-5 mt-5 mr-10 ml-10' v-on:click="chooseTypes('{{ $type->name }}')">{{ $type->name }}</button>
             @endforeach
         </div>
-        <section id="plates" class="flex">
+        <section id="plates" class="flex mb-40">
             <div class="menu_box flex">
                 <div v-for="(plate, index) in plates" class="plate_card flex">
                     <div class="card_intro">

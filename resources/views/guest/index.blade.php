@@ -34,7 +34,7 @@
                         <img :src='images[index]' class='restaurant-img' alt="immagine ristorante">
                     </div>
                     <div class="button-box flex">
-                        <button class='mt-10 mb-5'>Visita la pagina del ristorante</button>
+                        <span>Visita la pagina del ristorante</span>
                     </div>
                     <a :href="'http://localhost:8000/restaurant/'+ restaurant.id"></a>
                 </div>

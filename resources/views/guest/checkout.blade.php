@@ -10,7 +10,7 @@
 
     <h1 class="mt-20">Checkout</h1>
 
-    <div id="checkout_vue" class="checkout_container flex">
+    <div id="checkout_vue" class="checkout_container flex mb-20">
         <div class="cart_resume">
         
             <div class="cart_title_box mb-40 mt-20">
