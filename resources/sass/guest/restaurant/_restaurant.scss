@@ -22,9 +22,10 @@ body{
         text-align: center;
         .reverse_btn{
             padding: 10px 10px;
+            font-weight: $fontBold;
+
             &:hover, &:focus{
                 color: $primary;
-                font-weight: $fontBold;
             }
         }
     }
