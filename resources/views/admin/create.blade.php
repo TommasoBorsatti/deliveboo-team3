@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('page_title')
-    Dashboard di: {{$user->restaurant}}
+    Aggiungi un Piatto
 @endsection
 
 @section('content')

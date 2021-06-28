@@ -1,7 +1,7 @@
 @extends('layouts.guest-nojumbo')
 
 @section('page_title')
-    
+    Checkout del tuo Ordine
 @endsection
 
 @section('contentGuest')
@@ -14,7 +14,8 @@
         <div class="cart_resume">
         
             <div class="cart_title_box mb-40 mt-20">
-                <h3 class="cart_title">Il tuo carrello <i class="fas fa-cart-plus"></i> </h3>
+                <a href="{{route('restaurant.show', $restaurant->id)}}"><i class="fas fa-arrow-circle-left back-arrow"></i></a>
+                <h3 class="cart_title mt-15">Il tuo carrello <i class="fas fa-cart-plus"></i> </h3>
             </div>
             <div  class="cart_plates_container mb-20">
                 <div v-for="(item, index) in cart" class="cart_plate mb-15 flex">

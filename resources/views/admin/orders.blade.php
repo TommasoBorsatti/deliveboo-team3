@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('page_title')
-   Dashboard di: {{ $user->restaurant }}
+   Ordini di: {{ $user->restaurant }}
 @endsection
 
 @section('content')

@@ -6,6 +6,15 @@
         text-align: center;
     }
 
+    .back-arrow{
+        color: $primary;
+        font-size: 40px;
+
+        &:hover{
+            color: $complementare;
+        }
+    }
+
 
     .empty_btn{
         cursor:pointer;
